@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Os Números à Nossa Volta</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f5ef;
+      color: #252525;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #243c5a;
+      color: white;
+      padding: 70px 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 20px;
+      opacity: 0.85;
+    }
+
+    /* CONTEÚDO */
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 30px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .intro h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .intro p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* GRELHA DE AULAS */
+
+    .aulas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    /* CARTÃO */
+
+    .aula {
+      background: white;
+      border-radius: 18px;
+      padding: 28px;
+      min-height: 220px;
+
+      display: flex;
+      flex-direction: column;
+
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .aula:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .numero {
+      font-size: 15px;
+      font-weight: bold;
+      color: #d57a45;
+      margin-bottom: 18px;
+    }
+
+    .aula h3 {
+      font-size: 23px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .aula p {
+      color: #777;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    /* BOTÃO */
+
+    .botao {
+      margin-top: auto;
+
+      display: inline-block;
+      text-decoration: none;
+
+      background: #243c5a;
+      color: white;
+
+      padding: 12px 18px;
+      border-radius: 10px;
+
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .botao:hover {
+      background: #315273;
+    }
+
+    /* AULA BLOQUEADA */
+
+    .bloqueada {
+      opacity: 0.65;
+    }
+
+    .bloqueada .botao {
+      background: #aaa;
+      cursor: default;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 850px) {
+      .aulas {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* TELEMÓVEL */
+
+    @media (max-width: 550px) {
+
+      header {
+        padding: 50px 20px;
+      }
+
+      header h1 {
+        font-size: 34px;
+      }
+
+      header p {
+        font-size: 17px;
+      }
+
+      main {
+        padding: 40px 20px;
+      }
+
+      .aulas {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- CABEÇALHO -->
+
+  <header>
+    <h1>Os Números à Nossa Volta</h1>
+    <p>Matemática no nosso dia-a-dia</p>
+  </header>
+
+
+  <!-- CONTEÚDO -->
+
+  <main>
+
+    <section class="intro">
+
+      <h2>As nossas aulas</h2>
+
+      <p>
+        Escolhe uma aula para rever os conteúdos,
+        resolver desafios e descarregar os materiais.
+      </p>
+
+    </section>
+
+
+    <!-- AULAS -->
+
+    <section class="aulas">
+
+
+      <!-- AULA 1 -->
+
+      <article class="aula">
+
+        <div class="numero">
+          AULA 01
+        </div>
+
+        <h3>
+          Os números do nosso dia-a-dia
+        </h3>
+
+        <p>
+          Onde encontramos números e matemática
+          na nossa vida quotidiana?
+        </p>
+
+        <a
+          class="botao"
+          href="aulas/aula-01/index.html"
+        >
+          Ver aula →
+        </a>
+
+      </article>
+
+
+      <!-- AULA 2 -->
+
+      <article class="aula">
+
+        <div class="numero">
+          AULA 02
+        </div>
+
+        <h3>
+          A matemática escondida
+        </h3>
+
+        <p>
+          Descobrir a matemática presente
+          nas decisões que tomamos todos os dias.
+        </p>
+
+        <a
+          class="botao"
+          href="aulas/aula-02/index.html"
+        >
+          Ver aula →
+        </a>
+
+      </article>
+
+
+      <!-- AULA 3 -->
+
+      <article class="aula">
+
+        <div class="numero">
+          AULA 03
+        </div>
+
+        <h3>
+          Conta lá o teu dia
+        </h3>
+
+        <p>
+          Números, estimativas e pequenos
+          desafios do quotidiano.
+        </p>
+
+        <a
+          class="botao"
+          href="aulas/aula-03/index.html"
+        >
+          Ver aula →
+        </a>
+
+      </article>
+
+
+      <!-- AULA 4 -->
+
+      <article class="aula bloqueada">
+
+        <div class="numero">
+          AULA 04
+        </div>
+
+        <h3>
+          Contas que contam
+        </h3>
+
+        <p>
+          Percentagens, descontos
+          e situações do dia-a-dia.
+        </p>
+
+        <span class="botao">
+          🔒 Em breve
+        </span>
+
+      </article>
+
+
+      <!-- AULA 5 -->
+
+      <article class="aula bloqueada">
+
+        <div class="numero">
+          AULA 05
+        </div>
+
+        <h3>
+          Quando os números enganam
+        </h3>
+
+        <p>
+          Aprender a olhar de forma crítica
+          para números e manchetes.
+        </p>
+
+        <span class="botao">
+          🔒 Em breve
+        </span>
+
+      </article>
+
+
+      <!-- AULA 6 -->
+
+      <article class="aula bloqueada">
+
+        <div class="numero">
+          AULA 06
+        </div>
+
+        <h3>
+          Entre linhas e barras
+        </h3>
+
+        <p>
+          Como ler gráficos e perceber
+          a história que os dados contam.
+        </p>
+
+        <span class="botao">
+          🔒 Em breve
+        </span>
+
+      </article>
+
+
+    </section>
+
+  </main>
+
+
+  <!-- RODAPÉ -->
+
+  <footer>
+    Os Números à Nossa Volta • Universidade Sénior
+  </footer>
+
+</body>
+</html>
