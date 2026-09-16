@@ -1,0 +1,1868 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+
+<title>Os números à nossa volta — Aula 02 — A brincar também se conta!</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ==========================================================
+     REVEAL.JS
+     ========================================================== -->
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css"
+>
+
+<!-- ==========================================================
+     FONTE OFICIAL DA DISCIPLINA
+     ========================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* ============================================================
+   ============================================================
+   OS NÚMEROS À NOSSA VOLTA
+   TEMPLATE OFICIAL — TEMA TEAL
+   ============================================================
+   ============================================================ */
+
+
+/* ============================================================
+   1. IDENTIDADE VISUAL
+   ============================================================ */
+
+:root {
+
+    /* TEAL */
+
+    --teal-950: #042F2E;
+    --teal-900: #134E4A;
+    --teal-800: #115E59;
+    --teal-700: #0F766E;
+    --teal-600: #0D9488;
+    --teal-500: #14B8A6;
+    --teal-400: #2DD4BF;
+    --teal-300: #5EEAD4;
+    --teal-200: #99F6E4;
+    --teal-100: #CCFBF1;
+    --teal-50:  #F0FDFA;
+
+
+    /* CORES SECUNDÁRIAS */
+
+    --yellow: #F6D365;
+    --yellow-light: #FFF7D6;
+
+    --coral: #F7836D;
+    --coral-light: #FFF0ED;
+
+
+    /* TEXTO */
+
+    --ink: #102A27;
+    --white: #FFFFFF;
+
+
+    /* DIMENSÕES */
+
+    --slide-padding-x: 70px;
+
+    --top-label-y: 30px;
+
+    --slide-number-right: 42px;
+    --slide-number-bottom: 32px;
+
+}
+
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: var(--teal-800);
+
+}
+
+
+/* ============================================================
+   3. FONTE
+   ============================================================ */
+
+/*
+   REGRA IMPORTANTE:
+
+   Toda a apresentação usa Atkinson Hyperlegible.
+
+   Não definir outras font-family dentro dos slides.
+*/
+
+.reveal,
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal p,
+.reveal div,
+.reveal span,
+.reveal strong {
+
+    font-family:
+        "Atkinson Hyperlegible",
+        Arial,
+        sans-serif;
+
+}
+
+
+.reveal {
+
+    font-size: 36px;
+
+    color: var(--ink);
+
+}
+
+
+.reveal .slides {
+
+    text-align: left;
+
+}
+
+
+/* ============================================================
+   4. SLIDE BASE — 4:3
+   ============================================================ */
+
+/*
+   Cada slide tem SEMPRE exatamente a mesma área.
+
+   Reveal:
+   1024 × 768
+
+   Isto corresponde a 4:3.
+*/
+
+.reveal .slides section {
+
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+
+    padding:
+        58px
+        var(--slide-padding-x)
+        68px;
+
+    overflow: hidden;
+
+
+    /* FUNDO CLARO */
+
+    background-color: var(--teal-50);
+
+    background-image:
+
+        radial-gradient(
+            circle at 94% 8%,
+            rgba(45,212,191,.16) 0 90px,
+            transparent 91px
+        );
+
+}
+
+
+/* ============================================================
+   5. SLIDE ESCURO
+   ============================================================ */
+
+.reveal .slides section.dark-slide {
+
+    background-color: var(--teal-800);
+
+    background-image:
+
+        radial-gradient(
+            circle at 92% 10%,
+            rgba(94,234,212,.15) 0 125px,
+            transparent 126px
+        ),
+
+        radial-gradient(
+            circle at 5% 95%,
+            rgba(45,212,191,.11) 0 160px,
+            transparent 161px
+        );
+
+    color: white;
+
+}
+
+
+.dark-slide h1,
+.dark-slide h2,
+.dark-slide h3,
+.dark-slide p {
+
+    color: white;
+
+}
+
+
+.dark-slide .top-label {
+
+    color: var(--teal-200);
+
+}
+
+
+/* ============================================================
+   6. TIPOGRAFIA
+   ============================================================ */
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+
+    margin: 0;
+
+    text-transform: none;
+
+    letter-spacing: -0.025em;
+
+    font-weight: 700;
+
+    color: var(--ink);
+
+}
+
+
+.reveal h1 {
+
+    font-size: 2.15em;
+
+    line-height: 1.12;
+
+}
+
+
+.reveal h2 {
+
+    font-size: 1.62em;
+
+    line-height: 1.15;
+
+}
+
+
+.reveal h3 {
+
+    font-size: 1.02em;
+
+    line-height: 1.20;
+
+}
+
+
+.reveal p {
+
+    font-size: .95em;
+
+    line-height: 1.30;
+
+}
+
+
+/* ============================================================
+   7. CORES DE TEXTO
+   ============================================================ */
+
+.teal-text {
+
+    color: var(--teal-600);
+
+}
+
+
+.light-teal-text {
+
+    color: var(--teal-300);
+
+}
+
+
+.yellow-text {
+
+    color: var(--yellow);
+
+}
+
+
+.coral-text {
+
+    color: var(--coral);
+
+}
+
+
+.white-text {
+
+    color: white !important;
+
+}
+
+
+/* ============================================================
+   8. ETIQUETA SUPERIOR
+   ============================================================ */
+
+/*
+   Exemplo:
+
+   DINÂMICA DE GRUPO
+   PARA COMEÇAR A CONVERSA
+   QUIZ NUMÉRICO
+*/
+
+.top-label {
+
+    position: absolute;
+
+    top: var(--top-label-y);
+
+    left: var(--slide-padding-x);
+
+    margin: 0;
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: .02em;
+
+    color: var(--teal-700);
+
+    z-index: 10;
+
+}
+
+
+/* ============================================================
+   9. NÚMERO DO SLIDE
+   ============================================================ */
+
+/*
+   IMPORTANTE:
+
+   Todos os slides devem conter manualmente:
+
+   <div class="slide-number">01</div>
+
+   Nos slides claros:
+   teal escuro.
+
+   Nos slides escuros:
+   teal claro.
+*/
+
+.reveal .slides section .slide-number {
+
+    position: absolute !important;
+
+    right: var(--slide-number-right) !important;
+    bottom: var(--slide-number-bottom) !important;
+
+    top: auto !important;
+    left: auto !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    font-family:
+        "Atkinson Hyperlegible",
+        Arial,
+        sans-serif !important;
+
+    font-size: 20px !important;
+
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+
+    color: var(--teal-700) !important;
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    writing-mode: horizontal-tb !important;
+
+    z-index: 9999 !important;
+
+    pointer-events: none;
+
+}
+
+
+.reveal .slides section.dark-slide .slide-number,
+.reveal .slides section.cover .slide-number {
+
+    color: var(--teal-200) !important;
+
+}
+
+
+/* ============================================================
+   10. ÁREA SEGURA
+   ============================================================ */
+
+/*
+   Colocar o conteúdo principal dentro de:
+
+   <div class="slide-content">
+       ...
+   </div>
+
+   Isto ajuda a impedir que conteúdo saia do slide.
+*/
+
+.slide-content {
+
+    position: absolute;
+
+    top: 78px;
+    left: var(--slide-padding-x);
+    right: var(--slide-padding-x);
+    bottom: 68px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+}
+
+
+/* ============================================================
+   11. ALINHAMENTO
+   ============================================================ */
+
+.middle {
+
+    display: flex !important;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.center {
+
+    text-align: center;
+
+}
+
+
+/* ============================================================
+   12. GRIDS
+   ============================================================ */
+
+.grid-2 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 22px;
+
+}
+
+
+.grid-3 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
+
+    gap: 20px;
+
+}
+
+
+.grid-4 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0,1fr));
+
+    gap: 18px;
+
+}
+
+
+/* ============================================================
+   13. CARTÕES
+   ============================================================ */
+
+.card {
+
+    box-sizing: border-box;
+
+    padding: 26px;
+
+    background: white;
+
+    border:
+        3px solid
+        var(--teal-200);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 7px 0
+        rgba(15,118,110,.06);
+
+}
+
+
+.card.light {
+
+    background:
+        var(--teal-100);
+
+    border-color:
+        var(--teal-300);
+
+}
+
+
+.card.medium {
+
+    background:
+        var(--teal-500);
+
+    border-color:
+        var(--teal-600);
+
+    color: white;
+
+}
+
+
+.card.teal {
+
+    background:
+        var(--teal-700);
+
+    border-color:
+        var(--teal-800);
+
+    color: white;
+
+}
+
+
+.card.dark {
+
+    background:
+        var(--teal-900);
+
+    border-color:
+        var(--teal-950);
+
+    color: white;
+
+}
+
+
+.card.yellow {
+
+    background:
+        var(--yellow-light);
+
+    border-color:
+        var(--yellow);
+
+}
+
+
+.card.coral {
+
+    background:
+        var(--coral-light);
+
+    border-color:
+        var(--coral);
+
+}
+
+
+.card h3 {
+
+    margin-bottom: 12px;
+
+}
+
+
+.card p {
+
+    margin: 0;
+
+}
+
+
+/* ============================================================
+   14. ELEMENTOS REUTILIZÁVEIS
+   ============================================================ */
+
+.kicker {
+
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    font-size: .55em;
+
+    font-weight: 700;
+
+    letter-spacing: .05em;
+
+    color: var(--teal-700);
+
+}
+
+
+.icon {
+
+    font-size: 1.8em;
+
+    line-height: 1;
+
+    margin-bottom: 12px;
+
+}
+
+
+.big-question {
+
+    font-size: 1.65em !important;
+
+    line-height: 1.18 !important;
+
+    font-weight: 700;
+
+}
+
+
+.huge {
+
+    font-size: 4.1em;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+}
+
+
+/* ============================================================
+   15. CAPA
+   ============================================================ */
+
+.reveal .slides section.cover {
+
+    background-color:
+        var(--teal-900);
+
+    background-image:
+
+        radial-gradient(
+            circle at 89% 14%,
+            rgba(94,234,212,.16) 0 145px,
+            transparent 146px
+        ),
+
+        radial-gradient(
+            circle at 7% 96%,
+            rgba(45,212,191,.13) 0 175px,
+            transparent 176px
+        );
+
+    color: white;
+
+}
+
+
+.cover .course {
+
+    display: inline-block;
+
+    padding: 10px 24px;
+
+    margin-bottom: 40px;
+
+    background:
+        var(--teal-500);
+
+    color:
+        var(--teal-950);
+
+    border-radius: 999px;
+
+    font-size: .55em;
+
+    font-weight: 700;
+
+}
+
+
+.cover h1 {
+
+    max-width: 800px;
+
+    color: white;
+
+    font-size: 2.25em;
+
+    line-height: 1.12;
+
+}
+
+
+.cover h1 span {
+
+    color:
+        var(--teal-300);
+
+}
+
+
+.cover .subtitle {
+
+    max-width: 760px;
+
+    margin-top: 26px;
+
+    color:
+        var(--teal-100);
+
+    font-size: .84em;
+
+    line-height: 1.30;
+
+}
+
+
+.cover .teacher {
+
+    position: absolute;
+
+    left: var(--slide-padding-x);
+
+    bottom: var(--slide-number-bottom);
+
+    margin: 0;
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    color:
+        var(--teal-200);
+
+}
+
+
+/* ============================================================
+   16. CAIXA DE DESTAQUE
+   ============================================================ */
+
+.highlight-box {
+
+    margin-top: 34px;
+
+    padding: 30px 38px;
+
+    background:
+        var(--teal-700);
+
+    border-radius: 25px;
+
+    color: white;
+
+    font-size: .90em;
+
+    line-height: 1.30;
+
+}
+
+
+/* ============================================================
+   17. BARÓMETRO 0–10
+   ============================================================ */
+
+.barometer {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin: 38px 0;
+
+}
+
+
+.barometer-face {
+
+    font-size: 1.8em;
+
+}
+
+
+.barometer-line {
+
+    position: relative;
+
+    flex: 1;
+
+    height: 50px;
+
+    border-radius: 999px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--coral) 0%,
+            var(--yellow) 48%,
+            var(--teal-500) 100%
+        );
+
+}
+
+
+.barometer-line::before {
+
+    content: "0";
+
+    position: absolute;
+
+    left: 3px;
+    top: 58px;
+
+    font-size: .6em;
+
+    font-weight: 700;
+
+}
+
+
+.barometer-line::after {
+
+    content: "10";
+
+    position: absolute;
+
+    right: 0;
+    top: 58px;
+
+    font-size: .6em;
+
+    font-weight: 700;
+
+}
+
+
+/* ============================================================
+   18. QUIZ A / B
+   ============================================================ */
+
+.quiz-badge {
+
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 14px;
+
+    border-radius: 50%;
+
+    background:
+        var(--teal-500);
+
+    color: white;
+
+    font-size: 1em;
+
+    font-weight: 700;
+
+}
+
+
+.quiz-question {
+
+    max-width: 900px;
+
+    margin:
+        5px 0 30px;
+
+    font-size: 1.38em;
+
+    line-height: 1.18;
+
+    font-weight: 700;
+
+}
+
+
+.answers.ab {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 28px;
+
+}
+
+
+.answers.ab .answer {
+
+    box-sizing: border-box;
+
+    min-height: 145px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px;
+
+    background: white;
+
+    border:
+        4px solid
+        var(--teal-300);
+
+    border-radius: 24px;
+
+    text-align: center;
+
+    font-size: .95em;
+
+    font-weight: 700;
+
+}
+
+
+.answer-letter {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        var(--teal-600);
+
+    font-size: 1.65em;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+}
+
+
+.reveal-box {
+
+    margin-top: 25px;
+
+    padding: 20px 26px;
+
+    background:
+        var(--teal-700);
+
+    border-radius: 18px;
+
+    color: white;
+
+    font-size: .68em;
+
+    line-height: 1.25;
+
+}
+
+
+/* ============================================================
+   19. EXPORTAR PDF
+   ============================================================ */
+
+.pdf-export {
+
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10000;
+
+    padding: 10px 18px;
+
+    background: var(--teal-700);
+    border-radius: 999px;
+
+    color: white !important;
+    font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+
+}
+
+
+/*
+   No modo PDF, o Reveal.js coloca cada section dentro de uma
+   .pdf-page. Mantemos a área original de cada slide e o seu padding.
+*/
+html.reveal-print .reveal .slides .pdf-page > section {
+
+    width: 1024px !important;
+    height: 768px !important;
+    min-height: 768px !important;
+
+    padding: 58px var(--slide-padding-x) 68px !important;
+    overflow: hidden !important;
+
+}
+
+
+/* ============================================================
+   20. PDF
+   ============================================================ */
+
+@media print {
+
+    @page {
+
+        size: landscape;
+        margin: 0;
+
+    }
+
+    * {
+
+        -webkit-print-color-adjust:
+            exact !important;
+
+        print-color-adjust:
+            exact !important;
+
+    }
+
+
+    /*
+       No PDF mostramos todos os fragments.
+    */
+
+    .fragment {
+
+        opacity: 1 !important;
+
+        visibility: visible !important;
+
+    }
+
+
+    .fragment.visible {
+
+        opacity: 1 !important;
+
+    }
+
+
+    .slide-number {
+
+        opacity: 1 !important;
+
+    }
+
+
+    .pdf-export {
+
+        display: none !important;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="reveal">
+
+<div class="slides">
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 01
+     CAPA
+     ==========================================================
+     ========================================================== -->
+
+<section class="cover">
+
+    <div class="course">
+        OS NÚMEROS À NOSSA VOLTA
+    </div>
+
+    <h1>
+
+        A brincar também<br>
+
+        <span>
+            se conta!
+        </span>
+
+    </h1>
+
+    <p class="subtitle">
+
+        Jogos matemáticos para aquecer a cabeça
+        e pôr a conversa em jogo.
+
+    </p>
+
+    <div class="teacher">
+        Professor Hugo Bettencourt
+    </div>
+
+    <div class="slide-number">
+        01
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 02
+     OBJETIVO
+     ==========================================================
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        AULA 02
+    </div>
+
+    <div class="slide-number">
+        02
+    </div>
+
+    <div class="slide-content">
+
+        <div class="kicker">
+            OBJETIVO DE HOJE
+        </div>
+
+        <h1>
+
+            Jogar, pensar<br>
+
+            <span class="teal-text">
+                e explicar.
+            </span>
+
+        </h1>
+
+        <div class="highlight-box">
+
+            Explorar jogos simples que usam números, cálculo mental
+            e estratégia — descobrindo que há várias maneiras
+            de chegar a uma resposta.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 03
+     CONVERSATION STARTER
+     ==========================================================
+     ========================================================== -->
+
+<section class="middle dark-slide">
+
+    <div class="top-label">
+        PARA COMEÇAR A CONVERSA
+    </div>
+
+    <div class="slide-number">
+        03
+    </div>
+
+    <div class="center">
+
+        <div style="
+            font-size:2.7em;
+            margin-bottom:30px;
+        ">
+            💬
+        </div>
+
+        <p style="
+            font-size:1.55em;
+            line-height:1.20;
+            margin:0;
+            font-weight:700;
+        ">
+
+            Que jogo gostavam de jogar<br>
+            quando eram mais novos?
+
+        </p>
+
+        <p class="fragment"
+           style="
+              margin-top:42px;
+              color:var(--teal-300);
+              font-size:1.1em;
+              font-weight:700;
+           ">
+
+            O que fazia esse jogo ser tão bom?
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 04
+     4 CARTÕES
+     ==========================================================
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        A CAIXA DOS JOGOS
+    </div>
+
+    <div class="slide-number">
+        04
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+            Num jogo matemático,<br>
+            o que podemos treinar?
+        </h2>
+
+        <div
+            class="grid-2"
+            style="margin-top:30px"
+        >
+
+            <div class="card light fragment">
+
+                <div class="icon">
+                    👀
+                </div>
+
+                <h3>
+                    Encontrar padrões
+                </h3>
+
+            </div>
+
+
+            <div class="card fragment">
+
+                <div class="icon">
+                    🧠
+                </div>
+
+                <h3>
+                    Planear a jogada
+                </h3>
+
+            </div>
+
+
+            <div class="card fragment">
+
+                <div class="icon">
+                    💬
+                </div>
+
+                <h3>
+                    Explicar o caminho
+                </h3>
+
+            </div>
+
+
+            <div class="card medium fragment">
+
+                <div class="icon">
+                    🤝
+                </div>
+
+                <h3 class="white-text">
+                    Jogar em equipa
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 05
+     6 CARTÕES
+     ==========================================================
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        HOJE VAMOS JOGAR
+    </div>
+
+    <div class="slide-number">
+        05
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+
+            Quatro jogos, muitas<br>
+
+            <span class="teal-text">
+                maneiras de pensar.
+            </span>
+
+        </h2>
+
+        <div
+            class="grid-3"
+            style="margin-top:35px"
+        >
+
+            <div class="card light center fragment">
+                <div class="icon">🎯</div>
+                Número-alvo
+            </div>
+
+            <div class="card center fragment">
+                <div class="icon">🁫</div>
+                Dominó de contas
+            </div>
+
+            <div class="card light center fragment">
+                <div class="icon">🔔</div>
+                Bingo dos resultados
+            </div>
+
+            <div class="card center fragment">
+                <div class="icon">🛍️</div>
+                O preço mais perto
+            </div>
+
+            <div class="card light center fragment">
+                <div class="icon">✏️</div>
+                Papel e lápis
+            </div>
+
+            <div class="card medium center fragment">
+                <div class="icon">🗣️</div>
+                Conversa e risos
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 06
+     NÚMERO EM DESTAQUE
+     ==========================================================
+     ========================================================== -->
+
+<section class="middle">
+
+    <div class="top-label">
+        JOGO 1 — NÚMERO-ALVO
+    </div>
+
+    <div class="slide-number">
+        06
+    </div>
+
+    <div class="center">
+
+        <div
+            class="huge teal-text"
+            style="font-size:6em"
+        >
+
+            24
+
+        </div>
+
+        <h2
+            class="fragment"
+            style="margin-top:28px"
+        >
+
+            Com os números 3, 4, 5 e 6,<br>
+            conseguem chegar a 24?
+
+        </h2>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 07
+     FRASE / IDEIA CENTRAL
+     ==========================================================
+     ========================================================== -->
+
+<section class="middle dark-slide">
+
+    <div class="top-label">
+        JOGO 2 — BINGO DOS RESULTADOS
+    </div>
+
+    <div class="slide-number">
+        07
+    </div>
+
+    <div class="center">
+
+        <p style="
+            font-size:1.55em;
+            line-height:1.2;
+            font-weight:700;
+            margin:0 0 45px;
+        ">
+
+            Cada pessoa recebe uma grelha<br>
+            com números: 5, 8, 10, 12, 15…
+
+        </p>
+
+        <div
+            class="card fragment"
+            style="
+                max-width:800px;
+                margin:auto;
+                padding:42px;
+                background:var(--teal-500);
+                border-color:var(--teal-400);
+             "
+        >
+
+            <p
+                class="big-question"
+                style="margin:0;color:white"
+            >
+
+                Eu digo uma conta;<br>
+
+                <span style="color:var(--teal-950)">
+
+                    marquem o resultado certo.
+
+                </span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 08
+     BARÓMETRO
+     ==========================================================
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        JOGO 3 — O PREÇO MAIS PERTO
+    </div>
+
+    <div class="slide-number">
+        08
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+
+            Sem pesquisar:<br>
+            quanto acham que custa?
+
+        </h2>
+
+        <div class="barometer">
+
+            <div class="barometer-face">
+                €
+            </div>
+
+            <div class="barometer-line"></div>
+
+            <div class="barometer-face">
+                ?
+            </div>
+
+        </div>
+
+        <div
+            class="card teal center"
+            style="
+                margin-top:65px;
+                padding:30px;
+            "
+        >
+
+            <p
+                class="big-question"
+                style="margin:0"
+            >
+
+                Uma garrafa de azeite de 75 cl
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 09
+     QUIZ A / B
+     ==========================================================
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        DESAFIO RÁPIDO
+    </div>
+
+    <div class="slide-number">
+        09
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            1
+        </div>
+
+        <div class="quiz-question">
+
+            No número-alvo 24, qual destas contas
+            usa 3, 4, 5 e 6 uma vez cada?
+
+        </div>
+
+
+        <div class="answers ab">
+
+            <div class="answer">
+
+                <span class="answer-letter">
+                    A
+                </span>
+
+                6 × (5 + 3 − 4) = 24
+
+            </div>
+
+
+            <div class="answer">
+
+                <span class="answer-letter">
+                    B
+                </span>
+
+                6 × (5 + 3 + 4) = 72
+
+            </div>
+
+        </div>
+
+
+        <!--
+            A resposta só aparece
+            depois do clique.
+        -->
+
+        <div class="reveal-box fragment">
+
+            <strong>
+                A — Certo!
+            </strong>
+
+            Primeiro resolvemos o que está entre parênteses:
+            5 + 3 − 4 = 4; depois 6 × 4 = 24.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================================
+     ==========================================================
+     TEMPLATE 10
+     ENCERRAMENTO
+     ==========================================================
+     ========================================================== -->
+
+<section class="middle dark-slide">
+
+    <div class="top-label">
+        PARA TERMINAR
+    </div>
+
+    <div class="slide-number">
+        10
+    </div>
+
+    <div class="center">
+
+        <p
+            class="big-question"
+            style="margin:0"
+        >
+
+            Qual destes jogos<br>
+
+            <span class="light-teal-text">
+
+                gostariam de repetir?
+
+            </span>
+
+        </p>
+
+
+        <div
+            class="card fragment"
+            style="
+                max-width:800px;
+                margin:70px auto 0;
+                background:var(--teal-100);
+                border-color:var(--teal-300);
+                color:var(--teal-950);
+             "
+        >
+
+            <strong>
+
+                Para levar: quando explicamos o nosso caminho,
+                a matemática deixa de ser um teste e passa a ser conversa.
+
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+</div>
+
+
+<a class="pdf-export" href="?view=print" title="Abrir o modo de impressão para PDF">
+    Imprimir / PDF
+</a>
+
+
+<!-- ==========================================================
+     REVEAL.JS
+     ========================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js">
+</script>
+
+
+<script>
+
+Reveal.initialize({
+
+    /* ========================================================
+       FORMATO OFICIAL
+       4:3
+       ======================================================== */
+
+    width: 1024,
+    height: 768,
+
+    margin: 0,
+
+    minScale: 0.1,
+    maxScale: 4,
+
+
+    /* ========================================================
+       NAVEGAÇÃO
+       ======================================================== */
+
+    controls: true,
+
+    progress: true,
+
+    center: false,
+
+    hash: true,
+
+    keyboard: true,
+
+    touch: true,
+
+
+    /* ========================================================
+       TRANSIÇÕES
+       ======================================================== */
+
+    transition: "slide",
+
+    transitionSpeed: "default",
+
+    backgroundTransition: "fade",
+
+
+    /* ========================================================
+       PDF
+       ======================================================== */
+
+    pdfSeparateFragments: false,
+
+    pdfMaxPagesPerSlide: 1,
+
+
+    /* ========================================================
+       NÚMERO DO SLIDE
+       ======================================================== */
+
+    /*
+       Mantemos false.
+
+       Os números são colocados manualmente
+       em cada slide para termos controlo total
+       sobre posição, cor e formato.
+    */
+
+    slideNumber: false
+
+});
+
+</script>
+
+</body>
+</html>
