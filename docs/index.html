@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aulas de matemática prática da Universidade Sénior.">
+  <meta name="description" content="Aulas de matemática prática da CUTLA - Universidade Sénior da Amadora.">
   <title>Os Números à Nossa Volta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,9 +27,10 @@
     .section-heading h2 { margin-bottom:8px; color:var(--teal-900); font-size:clamp(1.8rem,4vw,2.7rem); line-height:1.15; }
     .section-heading p { margin-bottom:0; color:var(--teal-800); }
     .aulas { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
-    .aula { display:flex; flex-direction:column; min-height:310px; padding:30px; border:3px solid var(--teal-300); border-radius:22px; background:var(--white); box-shadow:0 8px 0 var(--teal-100); }
+    .aula { position:relative; display:flex; flex-direction:column; min-height:310px; padding:30px; border:3px solid var(--teal-300); border-radius:22px; background:var(--white); box-shadow:0 8px 0 var(--teal-100); }
     .aula:nth-child(2) { border-color:var(--yellow); box-shadow:0 8px 0 #FFF0BD; }
     .numero { margin-bottom:22px; color:var(--teal-700); font-size:.9rem; font-weight:700; letter-spacing:.1em; }
+    .data { position:absolute; top:26px; right:26px; color:var(--teal-800); font-size:.95rem; font-weight:700; }
     .aula:nth-child(2) .numero { color:#975D00; }
     .aula h3 { margin-bottom:12px; color:var(--teal-900); font-size:2rem; line-height:1.1; }
     .aula p { margin-bottom:28px; }
@@ -38,25 +39,55 @@
     .botao:focus-visible { outline:4px solid var(--coral); outline-offset:4px; }
     .nota { margin:36px 0 0; padding:17px 20px; border-left:6px solid var(--coral); border-radius:8px; background:#FFF0ED; }
     footer { padding:28px 24px; color:var(--teal-100); background:var(--teal-950); text-align:center; } footer p { margin:0; }
+    .modal[hidden] { display:none; }
+    .modal { position:fixed; z-index:10; inset:0; display:grid; place-items:center; padding:20px; background:rgb(4 47 46 / .72); }
+    .modal-caixa { width:min(100%,500px); padding:32px; border:3px solid var(--teal-300); border-radius:22px; background:var(--white); box-shadow:0 18px 45px rgb(0 0 0 / .28); }
+    .modal-caixa h2 { margin-bottom:8px; color:var(--teal-900); font-size:2rem; line-height:1.15; }
+    .modal-caixa label { display:block; margin:20px 0 8px; font-weight:700; }
+    .modal-caixa input { width:100%; min-height:52px; padding:10px 12px; border:2px solid var(--teal-700); border-radius:10px; color:var(--ink); background:var(--teal-50); font:inherit; }
+    .modal-caixa input:focus-visible { outline:4px solid var(--coral); outline-offset:2px; }
+    .modal-acoes { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+    .modal-botao { min-height:48px; padding:10px 16px; border:0; border-radius:10px; color:var(--white); background:var(--teal-700); font:inherit; font-weight:700; cursor:pointer; }
+    .modal-botao:hover { background:var(--teal-900); }
+    .modal-botao.secundario { color:var(--teal-900); background:var(--teal-100); }
+    .mensagem-puzzle { min-height:1.5em; margin:14px 0 0; color:#9F2D1D; font-weight:700; }
     @media (max-width:680px) { .hero { padding:56px 22px 64px; } main { padding:42px 20px 56px; } .aulas { grid-template-columns:1fr; } .aula { min-height:280px; } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; } }
   </style>
 </head>
 <body>
-  <header class="hero"><div class="hero-content"><p class="eyebrow">UNIVERSIDADE SÉNIOR</p><h1>Os números<br><span>à nossa volta</span></h1><p>Matemática para conversar, pensar e usar todos os dias.</p></div></header>
+  <header class="hero"><div class="hero-content"><p class="eyebrow">CUTLA - UNIVERSIDADE SÉNIOR DA AMADORA</p><h1>Os números<br><span>à nossa volta</span></h1><p>Matemática para conversar, pensar e usar todos os dias.</p></div></header>
   <main>
     <section class="section-heading" aria-labelledby="aulas-title"><h2 id="aulas-title">As nossas aulas</h2><p>Escolha uma aula. Antes de entrar, há um pequeno desafio para aquecer a cabeça.</p></section>
     <section class="aulas" aria-label="Aulas disponíveis">
-      <article class="aula"><div class="numero">AULA 01</div><h3>Quem conta um conto… acrescenta um número!</h3><p>Vamos conhecer-nos e descobrir os números que já fazem parte do nosso dia.</p><a class="botao aula-link" href="aulas/aula-01/index.html" data-aula="01">Abrir aula <span aria-hidden="true">→</span></a></article>
-      <article class="aula"><div class="numero">AULA 02</div><h3>A brincar também se conta!</h3><p>Jogos matemáticos para pôr a conversa, o cálculo mental e a estratégia em jogo.</p><a class="botao aula-link" href="aulas/aula-02/index.html" data-aula="02">Abrir aula <span aria-hidden="true">→</span></a></article>
+      <article class="aula"><div class="numero">AULA 02</div><time class="data" datetime="2026-10-13">13/10/2026</time><h3>A brincar também se conta!</h3><p>Jogos matemáticos para pôr a conversa, o cálculo mental e a estratégia em jogo.</p><a class="botao aula-link" href="aulas/aula-02/index.html" data-aula="02">Abrir aula <span aria-hidden="true">→</span></a></article>
+      <article class="aula"><div class="numero">AULA 01</div><time class="data" datetime="2026-10-06">06/10/2026</time><h3>Quem conta um conto… acrescenta um número!</h3><p>Vamos conhecer-nos e descobrir os números que já fazem parte do nosso dia.</p><a class="botao aula-link" href="aulas/aula-01/index.html" data-aula="01">Abrir aula <span aria-hidden="true">→</span></a></article>
     </section>
     <p class="nota">Cada aula começa com um desafio rápido. Tente resolver antes de avançar.</p>
   </main>
-  <footer><p>Os Números à Nossa Volta • Universidade Sénior</p></footer>
+  <footer><p>Os Números à Nossa Volta • CUTLA - Universidade Sénior da Amadora</p></footer>
+  <div class="modal" id="puzzle-modal" hidden>
+    <div class="modal-caixa" role="dialog" aria-modal="true" aria-labelledby="puzzle-titulo" aria-describedby="puzzle-pergunta">
+      <h2 id="puzzle-titulo">O Hugo pergunta…</h2>
+      <p id="puzzle-pergunta"></p>
+      <form id="puzzle-form">
+        <label for="puzzle-resposta">A sua resposta</label>
+        <input id="puzzle-resposta" name="resposta" autocomplete="off" required>
+        <p class="mensagem-puzzle" id="puzzle-mensagem" aria-live="polite"></p>
+        <div class="modal-acoes"><button class="modal-botao" type="submit">Ver aula</button><button class="modal-botao secundario" id="puzzle-cancelar" type="button">Voltar</button></div>
+      </form>
+    </div>
+  </div>
   <script>
     function normalizar(valor) { return valor.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/[-.,;:!?()\[\]{}'"\s]/g, ""); }
-    function lerPuzzle(texto) { const pergunta=texto.match(/^Pergunta:\s*(.+)$/mi), resposta=texto.match(/^Resposta:\s*(.+)$/mi); if (!pergunta || !resposta) throw new Error("Formato de puzzle inválido."); return { pergunta:pergunta[1].trim(), resposta:resposta[1].trim() }; }
-    document.querySelectorAll(".aula-link").forEach((ligacao) => { ligacao.addEventListener("click", async (evento) => { evento.preventDefault(); try { const resposta=await fetch(`puzzles/puzzle_aula${ligacao.dataset.aula}.txt`); if (!resposta.ok) throw new Error("Puzzle indisponível."); const puzzle=lerPuzzle(await resposta.text()), tentativa=window.prompt(puzzle.pergunta); if (tentativa !== null && normalizar(tentativa) === normalizar(puzzle.resposta)) window.location.href=ligacao.href; else if (tentativa !== null) window.alert("Ainda não é essa a resposta. Tente novamente!"); } catch (erro) { window.alert("Não foi possível abrir o desafio desta aula. Tente novamente mais tarde."); console.error(erro); } }); });
+    function lerPuzzle(texto) { const data=texto.match(/^Data:\s*(\d{2}\/\d{2}\/\d{4})$/mi), pergunta=texto.match(/^Pergunta:\s*(.+)$/mi), resposta=texto.match(/^Resposta:\s*(.+)$/mi); if (!data || !pergunta || !resposta) throw new Error("Formato de puzzle inválido."); return { data:data[1], pergunta:pergunta[1].trim(), resposta:resposta[1].trim() }; }
+    const modal=document.querySelector("#puzzle-modal"), formulario=document.querySelector("#puzzle-form"), pergunta=document.querySelector("#puzzle-pergunta"), campo=document.querySelector("#puzzle-resposta"), mensagem=document.querySelector("#puzzle-mensagem"), cancelar=document.querySelector("#puzzle-cancelar");
+    let puzzleAtual, destinoAtual, botaoOrigem;
+    function fecharPuzzle() { modal.hidden=true; botaoOrigem?.focus(); }
+    cancelar.addEventListener("click", fecharPuzzle);
+    formulario.addEventListener("submit", (evento) => { evento.preventDefault(); if (normalizar(campo.value) === normalizar(puzzleAtual.resposta)) window.location.href=destinoAtual; else { mensagem.textContent="Ainda não é essa a resposta. Tente novamente!"; campo.select(); } });
+    document.addEventListener("keydown", (evento) => { if (evento.key === "Escape" && !modal.hidden) fecharPuzzle(); });
+    document.querySelectorAll(".aula-link").forEach((ligacao) => { ligacao.addEventListener("click", async (evento) => { evento.preventDefault(); try { const resposta=await fetch(`puzzles/puzzle_aula${ligacao.dataset.aula}.txt`); if (!resposta.ok) throw new Error("Puzzle indisponível."); puzzleAtual=lerPuzzle(await resposta.text()); destinoAtual=ligacao.href; botaoOrigem=ligacao; pergunta.textContent=puzzleAtual.pergunta; campo.value=""; mensagem.textContent=""; modal.hidden=false; campo.focus(); } catch (erro) { window.alert("Não foi possível abrir o desafio desta aula. Tente novamente mais tarde."); console.error(erro); } }); });
   </script>
 </body>
 </html>
