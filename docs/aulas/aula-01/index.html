@@ -1,0 +1,2195 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+
+<title>Os números à nossa volta — Aula 1</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+      rel="stylesheet">
+
+<style>
+
+/* ============================================================
+   PALETA
+   ============================================================ */
+
+:root {
+    --teal-950: #042F2E;
+    --teal-900: #134E4A;
+    --teal-800: #115E59;
+    --teal-700: #0F766E;
+    --teal-600: #0D9488;
+    --teal-500: #14B8A6;
+    --teal-400: #2DD4BF;
+    --teal-300: #5EEAD4;
+    --teal-200: #99F6E4;
+    --teal-100: #CCFBF1;
+    --teal-50:  #F0FDFA;
+
+    --yellow: #F6D365;
+    --coral: #F7836D;
+
+    --ink: #102A27;
+    --white: #FFFFFF;
+}
+
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--teal-800);
+}
+
+.reveal,
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal p,
+.reveal div,
+.reveal span,
+.reveal strong {
+    font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+}
+
+.reveal {
+    font-size: 36px;
+    color: var(--ink);
+}
+
+.reveal .slides {
+    text-align: left;
+}
+
+
+/* ============================================================
+   SLIDE BASE — 4:3
+   ============================================================ */
+
+.reveal .slides section {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+
+    padding: 58px 70px 68px;
+
+    overflow: hidden;
+
+    background-color: var(--teal-50);
+
+    background-image:
+        radial-gradient(
+            circle at 94% 8%,
+            rgba(45,212,191,.16) 0 90px,
+            transparent 91px
+        );
+}
+
+
+/* ============================================================
+   SLIDES ESCUROS
+   ============================================================ */
+
+.reveal .slides section.dark-slide {
+    background-color: var(--teal-800);
+
+    background-image:
+        radial-gradient(
+            circle at 92% 10%,
+            rgba(94,234,212,.15) 0 125px,
+            transparent 126px
+        ),
+        radial-gradient(
+            circle at 5% 95%,
+            rgba(45,212,191,.11) 0 160px,
+            transparent 161px
+        );
+
+    color: white;
+}
+
+.dark-slide h1,
+.dark-slide h2,
+.dark-slide h3,
+.dark-slide p {
+    color: white;
+}
+
+.dark-slide .top-label {
+    color: var(--teal-200);
+}
+
+
+/* ============================================================
+   TIPOGRAFIA
+   ============================================================ */
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+    text-transform: none;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.reveal h1 {
+    font-size: 2.15em;
+    line-height: 1.12;
+}
+
+.reveal h2 {
+    font-size: 1.62em;
+    line-height: 1.15;
+}
+
+.reveal h3 {
+    font-size: 1.02em;
+    line-height: 1.20;
+}
+
+.reveal p {
+    font-size: .95em;
+    line-height: 1.30;
+}
+
+.teal-text {
+    color: var(--teal-600);
+}
+
+.light-teal-text {
+    color: var(--teal-300);
+}
+
+.yellow-text {
+    color: var(--yellow);
+}
+
+.white-text {
+    color: white !important;
+}
+
+
+/* ============================================================
+   CABEÇALHO
+   ============================================================ */
+
+.top-label {
+    position: absolute;
+
+    top: 30px;
+    left: 70px;
+
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 1;
+
+    font-weight: 700;
+    letter-spacing: .02em;
+
+    color: var(--teal-700);
+
+    z-index: 10;
+}
+
+
+/* ============================================================
+   NÚMERO DO SLIDE
+   ============================================================ */
+
+.reveal .slides section .slide-number {
+    position: absolute !important;
+
+    right: 42px !important;
+    bottom: 32px !important;
+
+    top: auto !important;
+    left: auto !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    font-family:
+        "Atkinson Hyperlegible",
+        Arial,
+        sans-serif !important;
+
+    font-size: 20px !important;
+    font-weight: 700 !important;
+
+    line-height: 1 !important;
+    letter-spacing: 0 !important;
+
+    color: var(--teal-700) !important;
+
+    opacity: 1 !important;
+
+    writing-mode: horizontal-tb !important;
+
+    transform: none !important;
+
+    z-index: 9999 !important;
+
+    pointer-events: none;
+}
+
+.reveal .slides section.dark-slide .slide-number,
+.reveal .slides section.cover .slide-number {
+    color: var(--teal-200) !important;
+    opacity: 1 !important;
+}
+
+
+/* ============================================================
+   ÁREA SEGURA
+   ============================================================ */
+
+.slide-content {
+    position: absolute;
+
+    top: 78px;
+    left: 70px;
+    right: 70px;
+    bottom: 68px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.middle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+
+/* ============================================================
+   CARTÕES
+   ============================================================ */
+
+.card {
+    box-sizing: border-box;
+
+    background: white;
+
+    border: 3px solid var(--teal-200);
+    border-radius: 22px;
+
+    padding: 26px;
+
+    box-shadow: 0 7px 0 rgba(15,118,110,.06);
+}
+
+.card.light {
+    background: var(--teal-100);
+    border-color: var(--teal-300);
+}
+
+.card.medium {
+    background: var(--teal-500);
+    border-color: var(--teal-600);
+    color: white;
+}
+
+.card.teal {
+    background: var(--teal-700);
+    border-color: var(--teal-800);
+    color: white;
+}
+
+.card.dark {
+    background: var(--teal-900);
+    border-color: var(--teal-950);
+    color: white;
+}
+
+.card.yellow {
+    background: #FFF7D6;
+    border-color: var(--yellow);
+}
+
+.card.coral {
+    background: #FFF0ED;
+    border-color: var(--coral);
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+.card p {
+    margin: 0;
+}
+
+
+/* ============================================================
+   COMPONENTES
+   ============================================================ */
+
+.kicker {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    font-size: .55em;
+    font-weight: 700;
+    letter-spacing: .05em;
+
+    color: var(--teal-700);
+}
+
+.icon {
+    font-size: 1.8em;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.big-question {
+    font-size: 1.65em !important;
+    line-height: 1.18 !important;
+    font-weight: 700;
+}
+
+.huge {
+    font-size: 4.1em;
+    line-height: 1;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   CAPA
+   ============================================================ */
+
+.reveal .slides section.cover {
+    background-color: var(--teal-900);
+
+    background-image:
+        radial-gradient(
+            circle at 89% 14%,
+            rgba(94,234,212,.16) 0 145px,
+            transparent 146px
+        ),
+        radial-gradient(
+            circle at 7% 96%,
+            rgba(45,212,191,.13) 0 175px,
+            transparent 176px
+        );
+
+    color: white;
+}
+
+.cover .course {
+    display: inline-block;
+
+    background: var(--teal-500);
+    color: var(--teal-950);
+
+    border-radius: 999px;
+
+    padding: 10px 24px;
+    margin-bottom: 40px;
+
+    font-size: .55em;
+    font-weight: 700;
+}
+
+.cover h1 {
+    max-width: 800px;
+
+    color: white;
+
+    font-size: 2.25em;
+    line-height: 1.12;
+}
+
+.cover h1 span {
+    color: var(--teal-300);
+}
+
+.cover .subtitle {
+    max-width: 760px;
+
+    margin-top: 26px;
+
+    color: var(--teal-100);
+
+    font-size: .84em;
+    line-height: 1.30;
+}
+
+.cover .teacher {
+    position: absolute;
+
+    left: 70px;
+    bottom: 32px;
+
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: var(--teal-200);
+}
+
+
+/* ============================================================
+   OBJETIVO
+   ============================================================ */
+
+.objective {
+    margin-top: 34px;
+
+    padding: 30px 38px;
+
+    background: var(--teal-700);
+
+    border-radius: 25px;
+
+    color: white;
+
+    font-size: .90em;
+    line-height: 1.30;
+}
+
+
+/* ============================================================
+   ROTEIRO
+   ============================================================ */
+
+.route {
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0,1fr));
+
+    gap: 13px;
+
+    margin-top: 36px;
+}
+
+.route div {
+    box-sizing: border-box;
+
+    min-height: 140px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: var(--teal-100);
+
+    border: 3px solid var(--teal-300);
+    border-radius: 20px;
+
+    font-size: .61em;
+    font-weight: 700;
+}
+
+.route .emoji {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 2em;
+}
+
+
+/* ============================================================
+   ONDE ESTÃO OS NÚMEROS?
+   ============================================================ */
+
+.number-places {
+    height: 445px;
+
+    margin-top: 25px;
+
+    grid-template-rows: repeat(2, minmax(0,1fr));
+}
+
+.number-places .card {
+    min-height: 0;
+
+    padding: 22px 26px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.number-places .icon {
+    font-size: 1.6em;
+    margin-bottom: 8px;
+}
+
+.number-places h3 {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.number-places p {
+    font-size: .73em;
+    line-height: 1.18;
+    margin: 0;
+}
+
+
+/* ============================================================
+   BARÓMETRO
+   ============================================================ */
+
+.barometer {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin: 38px 0;
+}
+
+.barometer-face {
+    font-size: 1.8em;
+}
+
+.barometer-line {
+    position: relative;
+
+    flex: 1;
+
+    height: 50px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--coral) 0%,
+            var(--yellow) 48%,
+            var(--teal-500) 100%
+        );
+}
+
+.barometer-line::before {
+    content: "0";
+
+    position: absolute;
+
+    left: 3px;
+    top: 58px;
+
+    font-size: .6em;
+    font-weight: 700;
+}
+
+.barometer-line::after {
+    content: "10";
+
+    position: absolute;
+
+    right: 0;
+    top: 58px;
+
+    font-size: .6em;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   QUIZ
+   ============================================================ */
+
+.quiz-badge {
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--teal-500);
+    color: white;
+
+    font-size: 1em;
+    font-weight: 700;
+
+    margin-bottom: 14px;
+}
+
+.quiz-question {
+    max-width: 900px;
+
+    margin: 5px 0 30px;
+
+    font-size: 1.38em;
+    line-height: 1.18;
+
+    font-weight: 700;
+}
+
+.answers.ab {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 28px;
+}
+
+.answers.ab .answer {
+    box-sizing: border-box;
+
+    min-height: 145px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 22px;
+
+    background: white;
+
+    border: 4px solid var(--teal-300);
+    border-radius: 24px;
+
+    text-align: center;
+
+    font-size: .95em;
+    font-weight: 700;
+}
+
+.answer-letter {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--teal-600);
+
+    font-size: 1.65em;
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+.reveal-box {
+    margin-top: 25px;
+
+    padding: 20px 26px;
+
+    background: var(--teal-700);
+
+    border-radius: 18px;
+
+    color: white;
+
+    font-size: .68em;
+    line-height: 1.25;
+}
+
+
+/* ============================================================
+   EXPORTAR PDF
+   ============================================================ */
+
+.pdf-export {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 10000;
+
+    padding: 10px 18px;
+
+    background: var(--teal-700);
+    border-radius: 999px;
+
+    color: white !important;
+    font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/*
+   No modo PDF, o Reveal.js coloca cada section dentro de uma
+   .pdf-page. Mantemos a área original de cada slide e o seu padding.
+*/
+html.reveal-print .reveal .slides .pdf-page > section {
+    width: 1024px !important;
+    height: 768px !important;
+    min-height: 768px !important;
+
+    padding: 58px 70px 68px !important;
+    overflow: hidden !important;
+}
+
+
+/* ============================================================
+   PDF
+   ============================================================ */
+
+@media print {
+
+    @page {
+        size: landscape;
+        margin: 0;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .fragment {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .fragment.visible {
+        opacity: 1 !important;
+    }
+
+    .slide-number {
+        opacity: 1 !important;
+    }
+
+    .pdf-export {
+        display: none !important;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="reveal">
+<div class="slides">
+
+
+<!-- ==========================================================
+     01 — CAPA
+     ========================================================== -->
+
+<section class="cover">
+
+    <div class="course">
+        OS NÚMEROS À NOSSA VOLTA
+    </div>
+
+    <h1>
+        Quem conta um conto…<br>
+        <span>acrescenta um número!</span>
+    </h1>
+
+    <p class="subtitle">
+        Vamos conhecer-nos — e descobrir
+        a nossa relação com os números.
+    </p>
+
+    <div class="teacher">
+        Professor Hugo Bettencourt
+    </div>
+
+    <div class="slide-number">
+        01
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     02 — OBJETIVO
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        AULA 1
+    </div>
+
+    <div class="slide-number">
+        02
+    </div>
+
+    <div class="slide-content">
+
+        <div class="kicker">
+            OBJETIVO DE HOJE
+        </div>
+
+        <h1>
+            Começamos<br>
+            <span class="teal-text">
+                por nós.
+            </span>
+        </h1>
+
+        <div class="objective">
+
+            Conhecer o grupo e a sua relação com a matemática,
+            descobrir onde aparecem os números nas nossas vidas
+            e despertar a curiosidade para o ano que começa.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     03 — ROTEIRO
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        A NOSSA AULA
+    </div>
+
+    <div class="slide-number">
+        03
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+            Por onde vamos andar hoje?
+        </h2>
+
+        <div class="route">
+
+            <div class="fragment">
+                <span class="emoji">👋</span>
+                Bem-vindos!
+            </div>
+
+            <div class="fragment">
+                <span class="emoji">💬</span>
+                A matemática<br>e eu
+            </div>
+
+            <div class="fragment">
+                <span class="emoji">🔢</span>
+                A minha vida<br>em números
+            </div>
+
+            <div class="fragment">
+                <span class="emoji">🌡️</span>
+                Barómetro<br>matemático
+            </div>
+
+            <div class="fragment">
+                <span class="emoji">🧠</span>
+                Quiz<br>final
+            </div>
+
+        </div>
+
+        <div class="card teal fragment"
+             style="margin-top:34px;text-align:center">
+
+            <strong>
+                E pelo caminho… muita conversa!
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     04 — ONDE ESTÃO OS NÚMEROS?
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        ANTES DE COMEÇARMOS…
+    </div>
+
+    <div class="slide-number">
+        04
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+            Onde estão os números?
+        </h2>
+
+        <div class="grid-2 number-places">
+
+            <div class="card light fragment">
+
+                <div class="icon">🛒</div>
+
+                <h3>Nas compras</h3>
+
+                <p>
+                    Preços, descontos,
+                    quantidades…
+                </p>
+
+            </div>
+
+            <div class="card fragment">
+
+                <div class="icon">📰</div>
+
+                <h3>Nas notícias</h3>
+
+                <p>
+                    Percentagens,
+                    sondagens, gráficos…
+                </p>
+
+            </div>
+
+            <div class="card fragment">
+
+                <div class="icon">🩺</div>
+
+                <h3>Na saúde</h3>
+
+                <p>
+                    Análises, doses,
+                    valores de referência…
+                </p>
+
+            </div>
+
+            <div class="card medium fragment">
+
+                <div class="icon">⏰</div>
+
+                <h3 class="white-text">
+                    No nosso dia
+                </h3>
+
+                <p>
+                    Horas, distâncias,
+                    receitas, temperaturas…
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     05 — IDEIA CENTRAL
+     ========================================================== -->
+
+<section class="middle dark-slide">
+
+    <div class="top-label">
+        A IDEIA DESTA DISCIPLINA
+    </div>
+
+    <div class="slide-number">
+        05
+    </div>
+
+    <div class="center">
+
+        <p style="
+            font-size:1.5em;
+            line-height:1.2;
+            font-weight:700;
+            margin:0 0 45px;
+        ">
+
+            Não vamos estudar números<br>
+            só porque sim.
+
+        </p>
+
+        <div class="card fragment"
+             style="
+                max-width:800px;
+                margin:auto;
+                padding:42px;
+                background:var(--teal-500);
+                border-color:var(--teal-400);
+             ">
+
+            <p class="big-question"
+               style="margin:0;color:white">
+
+                Vamos perceber<br>
+
+                <span style="color:var(--teal-950)">
+                    o que eles nos querem dizer.
+                </span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     06 — CONVERSA
+     ========================================================== -->
+
+<section class="middle dark-slide">
+
+    <div class="top-label">
+        PARA COMEÇAR A CONVERSA
+    </div>
+
+    <div class="slide-number">
+        06
+    </div>
+
+    <div class="center">
+
+        <div style="
+            font-size:2.5em;
+            margin-bottom:28px;
+        ">
+            🍽️
+        </div>
+
+        <p style="
+            font-size:1.6em;
+            line-height:1.2;
+            margin:0;
+            color:white;
+            font-weight:700;
+        ">
+
+            Se a matemática fosse<br>
+            uma pessoa…
+
+        </p>
+
+        <p style="
+            font-size:1.75em;
+            line-height:1.2;
+            margin:38px 0 0;
+            color:var(--teal-300);
+            font-weight:700;
+        ">
+
+            convidavam-na para jantar?
+
+        </p>
+
+        <p class="fragment"
+           style="
+              margin-top:40px;
+              color:var(--teal-100);
+              font-size:.9em;
+           ">
+
+            E, mais importante…
+            <strong>porquê?</strong>
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     07 — MATEMÁTICA E EU
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        A MATEMÁTICA E EU
+    </div>
+
+    <div class="slide-number">
+        07
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+            Qual destas frases está<br>
+            mais perto de vocês?
+        </h2>
+
+        <div class="grid-2"
+             style="margin-top:28px">
+
+            <div class="card coral fragment">
+                <h3>
+                    😱 Matemática? Socorro!
+                </h3>
+            </div>
+
+            <div class="card yellow fragment">
+                <h3>
+                    🤔 Depende…
+                </h3>
+            </div>
+
+            <div class="card light fragment">
+                <h3>
+                    🙂 Até nos damos bem.
+                </h3>
+            </div>
+
+            <div class="card medium fragment">
+                <h3 class="white-text">
+                    😍 Venham daí os números!
+                </h3>
+            </div>
+
+        </div>
+
+        <p class="fragment center"
+           style="margin-top:28px;font-size:.78em">
+
+            Não há respostas certas ou erradas.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     08 — VIDA EM NÚMEROS
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        DINÂMICA DE GRUPO
+    </div>
+
+    <div class="slide-number">
+        08
+    </div>
+
+    <div class="slide-content">
+
+        <div class="kicker">
+            A MINHA VIDA EM NÚMEROS
+        </div>
+
+        <h2>
+            Escolham
+            <span class="teal-text">3 números</span>
+            que contem<br>
+            alguma coisa sobre vocês.
+        </h2>
+
+        <div style="
+            display:flex;
+            justify-content:center;
+            gap:80px;
+            margin:42px 0 35px;
+        ">
+
+            <div class="huge teal-text fragment">?</div>
+            <div class="huge teal-text fragment">?</div>
+            <div class="huge teal-text fragment">?</div>
+
+        </div>
+
+        <div class="card light center fragment">
+
+            Idade · família · viagens · profissão ·
+            datas · cafés por dia · número da sorte…
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     09 — EXEMPLO
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        EU COMEÇO!
+    </div>
+
+    <div class="slide-number">
+        09
+    </div>
+
+    <div class="slide-content center">
+
+        <h2>
+            O que poderão significar<br>
+            estes números na minha vida?
+        </h2>
+
+        <div style="
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:28px;
+            margin-top:55px;
+        ">
+
+            <div class="card light fragment">
+                <div class="huge teal-text">30</div>
+            </div>
+
+            <div class="card medium fragment">
+                <div class="huge">12</div>
+            </div>
+
+            <div class="card dark fragment">
+                <div class="huge">7</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     10 — 42
+     ========================================================== -->
+
+<section class="middle">
+
+    <div class="top-label">
+        MAS HÁ AQUI UM PROBLEMA…
+    </div>
+
+    <div class="slide-number">
+        10
+    </div>
+
+    <div class="center">
+
+        <div class="huge teal-text"
+             style="font-size:6em">
+            42
+        </div>
+
+        <h2 class="fragment"
+            style="margin-top:28px">
+
+            O que significa este número?
+
+        </h2>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     11 — CONTEXTO
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        UM NÚMERO PRECISA DE CONTEXTO
+    </div>
+
+    <div class="slide-number">
+        11
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+            O mesmo
+            <span class="teal-text">42</span>
+            pode significar…
+        </h2>
+
+        <div class="grid-2"
+             style="margin-top:28px">
+
+            <div class="card fragment">
+                🎂 <strong>42 anos</strong>
+            </div>
+
+            <div class="card light fragment">
+                💶 <strong>42 euros</strong>
+            </div>
+
+            <div class="card light fragment">
+                🚗 <strong>42 quilómetros</strong>
+            </div>
+
+            <div class="card fragment">
+                🌡️ <strong>42 graus</strong>
+            </div>
+
+        </div>
+
+        <div class="card teal center fragment"
+             style="margin-top:28px">
+
+            <strong>
+                Um número sozinho raramente conta a história toda.
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     12 — BARÓMETRO
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        BARÓMETRO MATEMÁTICO
+    </div>
+
+    <div class="slide-number">
+        12
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+            De 0 a 10,<br>
+            como se sentem perante…
+        </h2>
+
+        <div class="barometer">
+
+            <div class="barometer-face">
+                😱
+            </div>
+
+            <div class="barometer-line"></div>
+
+            <div class="barometer-face">
+                😎
+            </div>
+
+        </div>
+
+        <div class="card teal center"
+             style="margin-top:65px;padding:30px">
+
+            <p class="big-question"
+               style="margin:0">
+
+                fazer uma conta de cabeça?
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     13 — SITUAÇÕES
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        BARÓMETRO MATEMÁTICO
+    </div>
+
+    <div class="slide-number">
+        13
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+            E nestas situações?
+        </h2>
+
+        <div class="grid-2"
+             style="margin-top:28px">
+
+            <div class="card fragment">
+                📰 Ver um gráfico nas notícias
+            </div>
+
+            <div class="card light fragment">
+                🏷️ Calcular um desconto
+            </div>
+
+            <div class="card light fragment">
+                🧾 Perceber uma fatura
+            </div>
+
+            <div class="card fragment">
+                🩺 Ler números de análises
+            </div>
+
+            <div class="card fragment">
+                🍽️ Dividir a conta no restaurante
+            </div>
+
+            <div class="card coral fragment">
+                😬 Ouvir a palavra
+                <strong>percentagem</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     14 — INTERESSES
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        ESTE ANO CONTAMOS COM…
+    </div>
+
+    <div class="slide-number">
+        14
+    </div>
+
+    <div class="slide-content">
+
+        <h2>
+            O que gostariam de<br>
+
+            <span class="teal-text">
+                perceber melhor?
+            </span>
+        </h2>
+
+        <div class="grid-3"
+             style="margin-top:35px">
+
+            <div class="card light center fragment">
+                <div class="icon">💶</div>
+                Dinheiro
+            </div>
+
+            <div class="card center fragment">
+                <div class="icon">📊</div>
+                Notícias
+            </div>
+
+            <div class="card light center fragment">
+                <div class="icon">🩺</div>
+                Saúde
+            </div>
+
+            <div class="card center fragment">
+                <div class="icon">🎲</div>
+                Jogos
+            </div>
+
+            <div class="card light center fragment">
+                <div class="icon">🛒</div>
+                Compras
+            </div>
+
+            <div class="card medium center fragment">
+                <div class="icon">❓</div>
+                Outra coisa!
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     15 — INTRODUÇÃO AO QUIZ
+     ========================================================== -->
+
+<section class="middle dark-slide">
+
+    <div class="top-label">
+        QUIZ FINAL
+    </div>
+
+    <div class="slide-number">
+        15
+    </div>
+
+    <div class="center">
+
+        <div style="font-size:3em">
+            🧠
+        </div>
+
+        <h1 class="white-text"
+            style="margin-top:18px">
+
+            Verdade ou<br>
+
+            <span class="light-teal-text">
+                Número?
+            </span>
+
+        </h1>
+
+        <p style="
+            color:var(--teal-100);
+            font-size:.9em;
+            margin-top:32px;
+        ">
+
+            Duas hipóteses.<br>
+            Primeiro votamos. Depois descobrimos!
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     16 — QUIZ 1
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        QUIZ NUMÉRICO
+    </div>
+
+    <div class="slide-number">
+        16
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            1
+        </div>
+
+        <div class="quiz-question">
+            O zero existe nos números romanos tradicionais?
+        </div>
+
+        <div class="answers ab">
+
+            <div class="answer">
+                <span class="answer-letter">A</span>
+                Sim
+            </div>
+
+            <div class="answer">
+                <span class="answer-letter">B</span>
+                Não
+            </div>
+
+        </div>
+
+        <div class="reveal-box fragment">
+
+            <strong>B — Não.</strong>
+            Os números romanos tradicionais não tinham
+            um símbolo para representar o zero.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     17 — QUIZ 2
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        QUIZ NUMÉRICO
+    </div>
+
+    <div class="slide-number">
+        17
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            2
+        </div>
+
+        <div class="quiz-question">
+            Existe um número que seja
+            ao mesmo tempo par e primo?
+        </div>
+
+        <div class="answers ab">
+
+            <div class="answer">
+                <span class="answer-letter">A</span>
+                Sim
+            </div>
+
+            <div class="answer">
+                <span class="answer-letter">B</span>
+                Não
+            </div>
+
+        </div>
+
+        <div class="reveal-box fragment">
+
+            <strong>A — Sim: o 2.</strong>
+            É par e tem exatamente dois divisores positivos:
+            1 e 2.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     18 — QUIZ 3
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        QUIZ NUMÉRICO
+    </div>
+
+    <div class="slide-number">
+        18
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            3
+        </div>
+
+        <div class="quiz-question">
+            Se aumentarmos um preço 20%
+            e depois o baixarmos 20%,
+            voltamos ao preço inicial?
+        </div>
+
+        <div class="answers ab">
+
+            <div class="answer">
+                <span class="answer-letter">A</span>
+                Sim
+            </div>
+
+            <div class="answer">
+                <span class="answer-letter">B</span>
+                Não
+            </div>
+
+        </div>
+
+        <div class="reveal-box fragment">
+
+            <strong>B — Não.</strong>
+            Por exemplo: €100 → €120 → €96.
+            Os dois 20% são calculados sobre valores diferentes.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     19 — QUIZ 4
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        QUIZ NUMÉRICO
+    </div>
+
+    <div class="slide-number">
+        19
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            4
+        </div>
+
+        <div class="quiz-question">
+            Um milhão de segundos
+            são mais de 10 dias?
+        </div>
+
+        <div class="answers ab">
+
+            <div class="answer">
+                <span class="answer-letter">A</span>
+                Sim
+            </div>
+
+            <div class="answer">
+                <span class="answer-letter">B</span>
+                Não
+            </div>
+
+        </div>
+
+        <div class="reveal-box fragment">
+
+            <strong>A — Sim.</strong>
+            Um milhão de segundos são aproximadamente
+            <strong>11 dias e 14 horas</strong>.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     20 — QUIZ 5
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        QUIZ NUMÉRICO
+    </div>
+
+    <div class="slide-number">
+        20
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            5
+        </div>
+
+        <div class="quiz-question">
+            Às 15h15, os ponteiros do relógio
+            estão exatamente um em cima do outro?
+        </div>
+
+        <div class="answers ab">
+
+            <div class="answer">
+                <span class="answer-letter">A</span>
+                Sim
+            </div>
+
+            <div class="answer">
+                <span class="answer-letter">B</span>
+                Não
+            </div>
+
+        </div>
+
+        <div class="reveal-box fragment">
+
+            <strong>B — Não.</strong>
+            O ponteiro das horas já avançou para lá do 3.
+            O menor ângulo entre os ponteiros é
+            <strong>7,5°</strong>.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     21 — QUIZ 6
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        QUIZ NUMÉRICO
+    </div>
+
+    <div class="slide-number">
+        21
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            6
+        </div>
+
+        <div class="quiz-question">
+            Numa sala com 23 pessoas,
+            é superior a 50% a probabilidade
+            de pelo menos duas fazerem anos no mesmo dia?
+        </div>
+
+        <div class="answers ab">
+
+            <div class="answer">
+                <span class="answer-letter">A</span>
+                Sim
+            </div>
+
+            <div class="answer">
+                <span class="answer-letter">B</span>
+                Não
+            </div>
+
+        </div>
+
+        <div class="reveal-box fragment">
+
+            <strong>A — Sim.</strong>
+            Com 23 pessoas, essa probabilidade
+            é de aproximadamente <strong>50,7%</strong>.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     22 — QUIZ 7
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        QUIZ NUMÉRICO
+    </div>
+
+    <div class="slide-number">
+        22
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            7
+        </div>
+
+        <div class="quiz-question">
+            Se uma folha com 0,1 mm de espessura
+            pudesse ser dobrada 42 vezes,
+            ultrapassaria a distância média da Terra à Lua?
+        </div>
+
+        <div class="answers ab">
+
+            <div class="answer">
+                <span class="answer-letter">A</span>
+                Sim
+            </div>
+
+            <div class="answer">
+                <span class="answer-letter">B</span>
+                Não
+            </div>
+
+        </div>
+
+        <div class="reveal-box fragment">
+
+            <strong>A — Sim.</strong>
+            A espessura teórica seria aproximadamente
+            <strong>440 000 km</strong>.
+            A distância média Terra–Lua é cerca de 384 400 km.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     23 — QUIZ 8
+     ========================================================== -->
+
+<section>
+
+    <div class="top-label">
+        QUIZ NUMÉRICO
+    </div>
+
+    <div class="slide-number">
+        23
+    </div>
+
+    <div class="slide-content">
+
+        <div class="quiz-badge">
+            8
+        </div>
+
+        <div class="quiz-question">
+            Existe um maior
+            número inteiro positivo?
+        </div>
+
+        <div class="answers ab">
+
+            <div class="answer">
+                <span class="answer-letter">A</span>
+                Sim
+            </div>
+
+            <div class="answer">
+                <span class="answer-letter">B</span>
+                Não
+            </div>
+
+        </div>
+
+        <div class="reveal-box fragment">
+
+            <strong>B — Não.</strong>
+            Escolham qualquer número inteiro positivo.
+            Podemos sempre somar 1 e obter
+            um número ainda maior.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================================
+     24 — FINAL
+     ========================================================== -->
+
+<section class="middle dark-slide">
+
+    <div class="top-label">
+        O MEU NÚMERO DE SAÍDA
+    </div>
+
+    <div class="slide-number">
+        24
+    </div>
+
+    <div class="center">
+
+        <p class="big-question"
+           style="margin:0">
+
+            De
+            <span class="yellow-text">0</span>
+            a
+            <span class="light-teal-text">10</span>,<br>
+
+            com quanta curiosidade<br>
+            saem daqui hoje?
+
+        </p>
+
+        <div class="barometer"
+             style="
+                 margin:50px auto 0;
+                 max-width:800px;
+             ">
+
+            <div class="barometer-face">
+                🤷
+            </div>
+
+            <div class="barometer-line"></div>
+
+            <div class="barometer-face">
+                🤩
+            </div>
+
+        </div>
+
+        <div class="card fragment"
+             style="
+                max-width:800px;
+                margin:75px auto 0;
+                background:var(--teal-100);
+                border-color:var(--teal-300);
+                color:var(--teal-950);
+             ">
+
+            <strong>
+                E o que teria de acontecer
+                para esse número subir 1 ponto?
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+</div>
+
+
+<a class="pdf-export" href="?view=print" title="Abrir o modo de impressão para PDF">
+    Imprimir / PDF
+</a>
+
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+
+<script>
+
+Reveal.initialize({
+
+    /* FORMATO FIXO 4:3 */
+
+    width: 1024,
+    height: 768,
+
+    margin: 0,
+
+    minScale: 0.1,
+    maxScale: 4,
+
+
+    /* NAVEGAÇÃO */
+
+    controls: true,
+    progress: true,
+
+    center: false,
+
+    hash: true,
+
+    keyboard: true,
+    touch: true,
+
+
+    /* TRANSIÇÕES */
+
+    transition: "slide",
+    transitionSpeed: "default",
+    backgroundTransition: "fade",
+
+
+    /* PDF */
+
+    pdfSeparateFragments: false,
+    pdfMaxPagesPerSlide: 1,
+
+
+    /*
+       A numeração é controlada manualmente no HTML
+       para garantir a mesma posição em todos os slides.
+    */
+
+    slideNumber: false
+
+});
+
+</script>
+
+</body>
+</html>

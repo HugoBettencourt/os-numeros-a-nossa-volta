@@ -1,389 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Aulas de matemática prática da Universidade Sénior.">
   <title>Os Números à Nossa Volta</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f5ef;
-      color: #252525;
-      min-height: 100vh;
-    }
-
-    /* HEADER */
-
-    header {
-      background: #243c5a;
-      color: white;
-      padding: 70px 30px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-
-    header p {
-      font-size: 20px;
-      opacity: 0.85;
-    }
-
-    /* CONTEÚDO */
-
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 30px;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .intro h2 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .intro p {
-      font-size: 18px;
-      color: #666;
-    }
-
-    /* GRELHA DE AULAS */
-
-    .aulas {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    /* CARTÃO */
-
-    .aula {
-      background: white;
-      border-radius: 18px;
-      padding: 28px;
-      min-height: 220px;
-
-      display: flex;
-      flex-direction: column;
-
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .aula:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    }
-
-    .numero {
-      font-size: 15px;
-      font-weight: bold;
-      color: #d57a45;
-      margin-bottom: 18px;
-    }
-
-    .aula h3 {
-      font-size: 23px;
-      line-height: 1.25;
-      margin-bottom: 10px;
-    }
-
-    .aula p {
-      color: #777;
-      line-height: 1.5;
-      margin-bottom: 25px;
-    }
-
-    /* BOTÃO */
-
-    .botao {
-      margin-top: auto;
-
-      display: inline-block;
-      text-decoration: none;
-
-      background: #243c5a;
-      color: white;
-
-      padding: 12px 18px;
-      border-radius: 10px;
-
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .botao:hover {
-      background: #315273;
-    }
-
-    /* AULA BLOQUEADA */
-
-    .bloqueada {
-      opacity: 0.65;
-    }
-
-    .bloqueada .botao {
-      background: #aaa;
-      cursor: default;
-    }
-
-    /* FOOTER */
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #888;
-      font-size: 14px;
-    }
-
-    /* TABLET */
-
-    @media (max-width: 850px) {
-      .aulas {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    /* TELEMÓVEL */
-
-    @media (max-width: 550px) {
-
-      header {
-        padding: 50px 20px;
-      }
-
-      header h1 {
-        font-size: 34px;
-      }
-
-      header p {
-        font-size: 17px;
-      }
-
-      main {
-        padding: 40px 20px;
-      }
-
-      .aulas {
-        grid-template-columns: 1fr;
-      }
-
-    }
-
+    :root { --teal-950:#042F2E; --teal-900:#134E4A; --teal-800:#115E59; --teal-700:#0F766E; --teal-500:#14B8A6; --teal-300:#5EEAD4; --teal-100:#CCFBF1; --teal-50:#F0FDFA; --yellow:#F6D365; --coral:#F7836D; --ink:#102A27; --white:#FFF; }
+    * { box-sizing:border-box; }
+    body { min-width:320px; margin:0; color:var(--ink); background:var(--teal-50); font:18px/1.5 "Atkinson Hyperlegible",Arial,sans-serif; }
+    .hero { position:relative; overflow:hidden; padding:72px 24px 86px; color:var(--white); background:var(--teal-800); }
+    .hero::before,.hero::after { position:absolute; width:230px; height:230px; border-radius:50%; content:""; opacity:.18; }
+    .hero::before { top:-125px; right:5%; background:var(--yellow); }
+    .hero::after { right:-65px; bottom:-150px; background:var(--teal-300); }
+    .hero-content { position:relative; z-index:1; max-width:1080px; margin:auto; }
+    .eyebrow { margin:0 0 12px; color:var(--teal-100); font-size:.85rem; font-weight:700; letter-spacing:.12em; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { max-width:740px; margin-bottom:14px; font-size:clamp(2.3rem,6vw,4.5rem); line-height:1.04; }
+    h1 span { color:var(--teal-300); }
+    .hero p:last-child { max-width:600px; margin-bottom:0; font-size:clamp(1.15rem,2vw,1.4rem); }
+    main { max-width:1080px; margin:auto; padding:54px 24px 72px; }
+    .section-heading { max-width:680px; margin-bottom:30px; }
+    .section-heading h2 { margin-bottom:8px; color:var(--teal-900); font-size:clamp(1.8rem,4vw,2.7rem); line-height:1.15; }
+    .section-heading p { margin-bottom:0; color:var(--teal-800); }
+    .aulas { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+    .aula { display:flex; flex-direction:column; min-height:310px; padding:30px; border:3px solid var(--teal-300); border-radius:22px; background:var(--white); box-shadow:0 8px 0 var(--teal-100); }
+    .aula:nth-child(2) { border-color:var(--yellow); box-shadow:0 8px 0 #FFF0BD; }
+    .numero { margin-bottom:22px; color:var(--teal-700); font-size:.9rem; font-weight:700; letter-spacing:.1em; }
+    .aula:nth-child(2) .numero { color:#975D00; }
+    .aula h3 { margin-bottom:12px; color:var(--teal-900); font-size:2rem; line-height:1.1; }
+    .aula p { margin-bottom:28px; }
+    .botao { display:inline-flex; align-items:center; justify-content:center; gap:10px; width:fit-content; min-height:52px; margin-top:auto; padding:12px 20px; border-radius:12px; color:var(--white); background:var(--teal-700); font:inherit; font-weight:700; text-decoration:none; transition:background .15s ease,transform .15s ease; }
+    .botao:hover { background:var(--teal-900); transform:translateY(-2px); }
+    .botao:focus-visible { outline:4px solid var(--coral); outline-offset:4px; }
+    .nota { margin:36px 0 0; padding:17px 20px; border-left:6px solid var(--coral); border-radius:8px; background:#FFF0ED; }
+    footer { padding:28px 24px; color:var(--teal-100); background:var(--teal-950); text-align:center; } footer p { margin:0; }
+    @media (max-width:680px) { .hero { padding:56px 22px 64px; } main { padding:42px 20px 56px; } .aulas { grid-template-columns:1fr; } .aula { min-height:280px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; } }
   </style>
 </head>
-
-
 <body>
-
-  <!-- CABEÇALHO -->
-
-  <header>
-    <h1>Os Números à Nossa Volta</h1>
-    <p>Matemática no nosso dia-a-dia</p>
-  </header>
-
-
-  <!-- CONTEÚDO -->
-
+  <header class="hero"><div class="hero-content"><p class="eyebrow">UNIVERSIDADE SÉNIOR</p><h1>Os números<br><span>à nossa volta</span></h1><p>Matemática para conversar, pensar e usar todos os dias.</p></div></header>
   <main>
-
-    <section class="intro">
-
-      <h2>As nossas aulas</h2>
-
-      <p>
-        Escolhe uma aula para rever os conteúdos,
-        resolver desafios e descarregar os materiais.
-      </p>
-
+    <section class="section-heading" aria-labelledby="aulas-title"><h2 id="aulas-title">As nossas aulas</h2><p>Escolha uma aula. Antes de entrar, há um pequeno desafio para aquecer a cabeça.</p></section>
+    <section class="aulas" aria-label="Aulas disponíveis">
+      <article class="aula"><div class="numero">AULA 01</div><h3>Quem conta um conto… acrescenta um número!</h3><p>Vamos conhecer-nos e descobrir os números que já fazem parte do nosso dia.</p><a class="botao aula-link" href="aulas/aula-01/index.html" data-aula="01">Abrir aula <span aria-hidden="true">→</span></a></article>
+      <article class="aula"><div class="numero">AULA 02</div><h3>A brincar também se conta!</h3><p>Jogos matemáticos para pôr a conversa, o cálculo mental e a estratégia em jogo.</p><a class="botao aula-link" href="aulas/aula-02/index.html" data-aula="02">Abrir aula <span aria-hidden="true">→</span></a></article>
     </section>
-
-
-    <!-- AULAS -->
-
-    <section class="aulas">
-
-
-      <!-- AULA 1 -->
-
-      <article class="aula">
-
-        <div class="numero">
-          AULA 01
-        </div>
-
-        <h3>
-          Os números do nosso dia-a-dia
-        </h3>
-
-        <p>
-          Onde encontramos números e matemática
-          na nossa vida quotidiana?
-        </p>
-
-        <a
-          class="botao"
-          href="aulas/aula-01/index.html"
-        >
-          Ver aula →
-        </a>
-
-      </article>
-
-
-      <!-- AULA 2 -->
-
-      <article class="aula">
-
-        <div class="numero">
-          AULA 02
-        </div>
-
-        <h3>
-          A matemática escondida
-        </h3>
-
-        <p>
-          Descobrir a matemática presente
-          nas decisões que tomamos todos os dias.
-        </p>
-
-        <a
-          class="botao"
-          href="aulas/aula-02/index.html"
-        >
-          Ver aula →
-        </a>
-
-      </article>
-
-
-      <!-- AULA 3 -->
-
-      <article class="aula">
-
-        <div class="numero">
-          AULA 03
-        </div>
-
-        <h3>
-          Conta lá o teu dia
-        </h3>
-
-        <p>
-          Números, estimativas e pequenos
-          desafios do quotidiano.
-        </p>
-
-        <a
-          class="botao"
-          href="aulas/aula-03/index.html"
-        >
-          Ver aula →
-        </a>
-
-      </article>
-
-
-      <!-- AULA 4 -->
-
-      <article class="aula bloqueada">
-
-        <div class="numero">
-          AULA 04
-        </div>
-
-        <h3>
-          Contas que contam
-        </h3>
-
-        <p>
-          Percentagens, descontos
-          e situações do dia-a-dia.
-        </p>
-
-        <span class="botao">
-          🔒 Em breve
-        </span>
-
-      </article>
-
-
-      <!-- AULA 5 -->
-
-      <article class="aula bloqueada">
-
-        <div class="numero">
-          AULA 05
-        </div>
-
-        <h3>
-          Quando os números enganam
-        </h3>
-
-        <p>
-          Aprender a olhar de forma crítica
-          para números e manchetes.
-        </p>
-
-        <span class="botao">
-          🔒 Em breve
-        </span>
-
-      </article>
-
-
-      <!-- AULA 6 -->
-
-      <article class="aula bloqueada">
-
-        <div class="numero">
-          AULA 06
-        </div>
-
-        <h3>
-          Entre linhas e barras
-        </h3>
-
-        <p>
-          Como ler gráficos e perceber
-          a história que os dados contam.
-        </p>
-
-        <span class="botao">
-          🔒 Em breve
-        </span>
-
-      </article>
-
-
-    </section>
-
+    <p class="nota">Cada aula começa com um desafio rápido. Tente resolver antes de avançar.</p>
   </main>
-
-
-  <!-- RODAPÉ -->
-
-  <footer>
-    Os Números à Nossa Volta • Universidade Sénior
-  </footer>
-
+  <footer><p>Os Números à Nossa Volta • Universidade Sénior</p></footer>
+  <script>
+    function normalizar(valor) { return valor.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/[-.,;:!?()\[\]{}'"\s]/g, ""); }
+    function lerPuzzle(texto) { const pergunta=texto.match(/^Pergunta:\s*(.+)$/mi), resposta=texto.match(/^Resposta:\s*(.+)$/mi); if (!pergunta || !resposta) throw new Error("Formato de puzzle inválido."); return { pergunta:pergunta[1].trim(), resposta:resposta[1].trim() }; }
+    document.querySelectorAll(".aula-link").forEach((ligacao) => { ligacao.addEventListener("click", async (evento) => { evento.preventDefault(); try { const resposta=await fetch(`puzzles/puzzle_aula${ligacao.dataset.aula}.txt`); if (!resposta.ok) throw new Error("Puzzle indisponível."); const puzzle=lerPuzzle(await resposta.text()), tentativa=window.prompt(puzzle.pergunta); if (tentativa !== null && normalizar(tentativa) === normalizar(puzzle.resposta)) window.location.href=ligacao.href; else if (tentativa !== null) window.alert("Ainda não é essa a resposta. Tente novamente!"); } catch (erro) { window.alert("Não foi possível abrir o desafio desta aula. Tente novamente mais tarde."); console.error(erro); } }); });
+  </script>
 </body>
 </html>
