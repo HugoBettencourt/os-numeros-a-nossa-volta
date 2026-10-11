@@ -1,3 +1,0 @@
-Data: 13/10/2026
-Pergunta: 14x3=?
-Resposta: 42

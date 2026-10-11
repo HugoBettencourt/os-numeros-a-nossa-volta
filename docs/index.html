@@ -28,10 +28,8 @@
     .section-heading p { margin-bottom:0; color:var(--teal-800); }
     .aulas { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
     .aula { position:relative; display:flex; flex-direction:column; min-height:310px; padding:30px; border:3px solid var(--teal-300); border-radius:22px; background:var(--white); box-shadow:0 8px 0 var(--teal-100); }
-    .aula:nth-child(2) { border-color:var(--yellow); box-shadow:0 8px 0 #FFF0BD; }
     .numero { margin-bottom:22px; color:var(--teal-700); font-size:.9rem; font-weight:700; letter-spacing:.1em; }
     .data { position:absolute; top:26px; right:26px; color:var(--teal-800); font-size:.95rem; font-weight:700; }
-    .aula:nth-child(2) .numero { color:#975D00; }
     .aula h3 { margin-bottom:12px; color:var(--teal-900); font-size:2rem; line-height:1.1; }
     .aula p { margin-bottom:28px; }
     .botao { display:inline-flex; align-items:center; justify-content:center; gap:10px; width:fit-content; min-height:52px; margin-top:auto; padding:12px 20px; border-radius:12px; color:var(--white); background:var(--teal-700); font:inherit; font-weight:700; text-decoration:none; transition:background .15s ease,transform .15s ease; }
@@ -61,7 +59,6 @@
   <main>
     <section class="section-heading" aria-labelledby="aulas-title"><h2 id="aulas-title">As nossas aulas</h2><p>Escolha uma aula. Antes de entrar, há um pequeno desafio para aquecer a cabeça.</p></section>
     <section class="aulas" aria-label="Aulas disponíveis">
-      <article class="aula"><div class="numero">AULA 02</div><time class="data" datetime="2026-10-13">13/10/2026</time><h3>A brincar também se conta!</h3><p>Jogos matemáticos para pôr a conversa, o cálculo mental e a estratégia em jogo.</p><a class="botao aula-link" href="aulas/aula-02/index.html" data-aula="02">Abrir aula <span aria-hidden="true">→</span></a></article>
       <article class="aula"><div class="numero">AULA 01</div><time class="data" datetime="2026-10-06">06/10/2026</time><h3>Quem conta um conto… acrescenta um número!</h3><p>Vamos conhecer-nos e descobrir os números que já fazem parte do nosso dia.</p><a class="botao aula-link" href="aulas/aula-01/index.html" data-aula="01">Abrir aula <span aria-hidden="true">→</span></a></article>
     </section>
     <p class="nota">Cada aula começa com um desafio rápido. Tente resolver antes de avançar.</p>
