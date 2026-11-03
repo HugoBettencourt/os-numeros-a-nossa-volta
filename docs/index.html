@@ -26,6 +26,20 @@
     .section-heading { max-width:680px; margin-bottom:30px; }
     .section-heading h2 { margin-bottom:8px; color:var(--teal-900); font-size:clamp(1.8rem,4vw,2.7rem); line-height:1.15; }
     .section-heading p { margin-bottom:0; color:var(--teal-800); }
+    .tabs { display:flex; gap:12px; margin:0 0 32px; border-bottom:4px solid var(--teal-100); }
+    .tab { min-width:150px; min-height:64px; padding:14px 28px; border:2px solid var(--teal-300); border-bottom:0; border-radius:14px 14px 0 0; color:var(--teal-950); background:var(--white); font:700 1.2rem/1.2 "Atkinson Hyperlegible",Arial,sans-serif; cursor:pointer; transition:background .15s ease,color .15s ease,transform .15s ease; }
+    .tab:hover { color:var(--white); background:var(--teal-800); transform:translateY(-2px); }
+    .tab[aria-selected="true"] { color:var(--white); background:var(--teal-700); border-color:var(--teal-700); }
+    .tab[aria-selected="true"]:hover { background:var(--teal-900); }
+    .tab:focus-visible { position:relative; z-index:1; outline:4px solid var(--coral); outline-offset:3px; }
+    .fichas { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+    .ficha { position:relative; display:flex; flex-direction:column; min-height:300px; padding:30px; border:3px solid var(--teal-300); border-radius:22px; background:var(--white); box-shadow:0 8px 0 var(--teal-100); }
+    .ficha h3 { margin:0 0 12px; color:var(--teal-900); font-size:2rem; line-height:1.1; }
+    .ficha p { margin-bottom:24px; }
+    .ficha-acoes { display:flex; gap:12px; margin-top:auto; }
+    .ficha-acoes .botao { flex:1; width:auto; margin-top:0; padding-inline:12px; }
+    .botao.secundario { color:var(--teal-900); background:var(--teal-100); }
+    .botao.secundario:hover { color:var(--white); background:var(--teal-800); }
     .aulas { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
     .aula { position:relative; display:flex; flex-direction:column; min-height:310px; padding:30px; border:3px solid var(--teal-300); border-radius:22px; background:var(--white); box-shadow:0 8px 0 var(--teal-100); }
     .numero { margin-bottom:22px; color:var(--teal-700); font-size:.9rem; font-weight:700; letter-spacing:.1em; }
@@ -51,19 +65,32 @@
     .modal-botao.secundario { color:var(--teal-900); background:var(--teal-100); }
     .mensagem-puzzle { min-height:1.5em; margin:14px 0 0; color:#9F2D1D; font-weight:700; }
     @media (max-width:680px) { .hero { padding:56px 22px 64px; } main { padding:42px 20px 56px; } .aulas { grid-template-columns:1fr; } .aula { min-height:280px; } }
+    @media (max-width:420px) { .tabs { gap:8px; } .tab { flex:1; min-width:0; min-height:60px; padding:12px 10px; font-size:1.1rem; } }
+    @media (max-width:680px) { .fichas { grid-template-columns:1fr; } .ficha-acoes { gap:8px; } .ficha-acoes .botao { font-size:.95rem; } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { transition:none!important; } }
   </style>
 </head>
 <body>
   <header class="hero"><div class="hero-content"><p class="eyebrow">CUTLA - UNIVERSIDADE SÉNIOR DA AMADORA</p><h1>Os números<br><span>à nossa volta</span></h1><p>Matemática para conversar, pensar e usar todos os dias.</p></div></header>
   <main>
+    <div class="tabs" role="tablist" aria-label="Conteúdos"><button class="tab" id="tab-aulas" type="button" role="tab" aria-selected="true" aria-controls="painel-aulas">Aulas</button><button class="tab" id="tab-fichas" type="button" role="tab" aria-selected="false" aria-controls="painel-fichas" tabindex="-1">Fichas</button></div>
+    <div id="painel-aulas" role="tabpanel" aria-labelledby="tab-aulas">
     <section class="section-heading" aria-labelledby="aulas-title"><h2 id="aulas-title">As nossas aulas</h2><p>Escolha uma aula. Antes de entrar, há um pequeno desafio para aquecer a cabeça.</p></section>
     <section class="aulas" aria-label="Aulas disponíveis">
+      <article class="aula"><div class="numero">AULA 04</div><time class="data" datetime="2026-11-03">03/11/2026</time><h3>Grelhas, pistas e boas jogadas</h3><p>Hashi, nonogramas, caça-minas e Sudoku: observar pistas e construir soluções.</p><a class="botao aula-link" href="aulas/aula-04/index.html" data-aula="04">Abrir aula <span aria-hidden="true">→</span></a></article>
       <article class="aula"><div class="numero">AULA 03</div><time class="data" datetime="2026-10-27">27/10/2026</time><h3>Percentagens sem mistério</h3><p>Descontos, aumentos e notícias: perceber o número antes de acreditar nele.</p><a class="botao aula-link" href="aulas/aula-03/index.html" data-aula="03">Abrir aula <span aria-hidden="true">→</span></a></article>
       <article class="aula"><div class="numero">AULA 02</div><time class="data" datetime="2026-10-20">20/10/2026</time><h3>Contas com truques e ordem</h3><p>Atalhos úteis, parênteses e potências para as contas do dia a dia.</p><a class="botao aula-link" href="aulas/aula-02/index.html" data-aula="02">Abrir aula <span aria-hidden="true">→</span></a></article>
       <article class="aula"><div class="numero">AULA 01</div><time class="data" datetime="2026-10-13">13/10/2026</time><h3>Quem conta um conto… acrescenta um número!</h3><p>Vamos conhecer-nos e descobrir os números que já fazem parte do nosso dia.</p><a class="botao aula-link" href="aulas/aula-01/index.html" data-aula="01">Abrir aula <span aria-hidden="true">→</span></a></article>
     </section>
     <p class="nota">Cada aula começa com um desafio rápido. Tente resolver antes de avançar.</p>
+    </div>
+    <div id="painel-fichas" role="tabpanel" aria-labelledby="tab-fichas" hidden>
+      <section class="section-heading" aria-labelledby="fichas-title"><h2 id="fichas-title">As nossas fichas de exercícios</h2><p>Consulte as fichas da aula e veja as soluções quando quiser.</p></section>
+      <section class="fichas" aria-label="Fichas disponíveis">
+        <article class="ficha"><div class="numero">AULA 04</div><time class="data" datetime="2026-11-03">03/11/2026</time><h3>Puzzles de grelha</h3><p>Hashi, nonogramas, caça-minas e Sudoku.</p><div class="ficha-acoes"><a class="botao" href="assets/aula04/puzzles-aula04.pdf">Ver ficha</a><a class="botao secundario" href="assets/aula04/puzzles-aula04-solucoes.pdf">Soluções</a></div></article>
+        <article class="ficha"><div class="numero">AULA 04 · EXTRA</div><time class="data" datetime="2026-11-03">03/11/2026</time><h3>Puzzles de grelha - extra!</h3><p>Mais um desafio de cada tipo para continuar a praticar.</p><div class="ficha-acoes"><a class="botao" href="assets/aula04/puzzles-extra-aula04.pdf">Ver ficha</a><a class="botao secundario" href="assets/aula04/puzzles-extra-aula04-solucoes.pdf">Soluções</a></div></article>
+      </section>
+    </div>
   </main>
   <footer><p>Os Números à Nossa Volta • CUTLA - Universidade Sénior da Amadora</p></footer>
   <div class="modal" id="puzzle-modal" hidden>
@@ -82,10 +109,13 @@
     function normalizar(valor) { return valor.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/[-.,;:!?()\[\]{}'"\s]/g, ""); }
     function lerPuzzle(texto) { const data=texto.match(/^Data:\s*(\d{2}\/\d{2}\/\d{4})$/mi), pergunta=texto.match(/^Pergunta:\s*(.+)$/mi), resposta=texto.match(/^Resposta:\s*(.+)$/mi); if (!data || !pergunta || !resposta) throw new Error("Formato de puzzle inválido."); return { data:data[1], pergunta:pergunta[1].trim(), resposta:resposta[1].trim() }; }
     const modal=document.querySelector("#puzzle-modal"), formulario=document.querySelector("#puzzle-form"), pergunta=document.querySelector("#puzzle-pergunta"), campo=document.querySelector("#puzzle-resposta"), mensagem=document.querySelector("#puzzle-mensagem"), cancelar=document.querySelector("#puzzle-cancelar");
+    const tabs=[...document.querySelectorAll('[role="tab"]')];
+    tabs.forEach((tab,index)=>tab.addEventListener("click",()=>{ tabs.forEach((item,i)=>{ const ativo=i===index; item.setAttribute("aria-selected",String(ativo)); item.tabIndex=ativo?0:-1; document.getElementById(item.getAttribute("aria-controls")).hidden=!ativo; }); }));
+    document.querySelector('[role="tablist"]').addEventListener("keydown",evento=>{ const i=tabs.indexOf(document.activeElement); if ((evento.key==="ArrowRight"||evento.key==="ArrowLeft")&&i>=0) { evento.preventDefault(); const proximo=(i+(evento.key==="ArrowRight"?1:tabs.length-1))%tabs.length; tabs[proximo].focus(); tabs[proximo].click(); } });
     let puzzleAtual, destinoAtual, botaoOrigem;
     function fecharPuzzle() { modal.hidden=true; botaoOrigem?.focus(); }
     cancelar.addEventListener("click", fecharPuzzle);
-    formulario.addEventListener("submit", (evento) => { evento.preventDefault(); if (normalizar(campo.value) === normalizar(puzzleAtual.resposta)) window.location.href=destinoAtual; else { mensagem.textContent="Ainda não é essa a resposta. Tente novamente!"; campo.select(); } });
+    formulario.addEventListener("submit", (evento) => { evento.preventDefault(); const respostasAceites=puzzleAtual.resposta.split(/\s*\|\s*/).map(normalizar); if (respostasAceites.includes(normalizar(campo.value))) window.location.href=destinoAtual; else { mensagem.textContent="Ainda não é essa a resposta. Tente novamente!"; campo.select(); } });
     document.addEventListener("keydown", (evento) => { if (evento.key === "Escape" && !modal.hidden) fecharPuzzle(); });
     document.querySelectorAll(".aula-link").forEach((ligacao) => { ligacao.addEventListener("click", async (evento) => { evento.preventDefault(); try { const resposta=await fetch(`puzzles/puzzle_aula${ligacao.dataset.aula}.txt`); if (!resposta.ok) throw new Error("Puzzle indisponível."); puzzleAtual=lerPuzzle(await resposta.text()); destinoAtual=ligacao.href; botaoOrigem=ligacao; pergunta.textContent=puzzleAtual.pergunta; campo.value=""; mensagem.textContent=""; modal.hidden=false; campo.focus(); } catch (erro) { window.alert("Não foi possível abrir o desafio desta aula. Tente novamente mais tarde."); console.error(erro); } }); });
   </script>

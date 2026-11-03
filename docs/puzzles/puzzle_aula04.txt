@@ -1,0 +1,3 @@
+Data: 03/11/2026
+Pergunta: No Sudoku, quantas vezes pode aparecer o mesmo número em cada linha?
+Resposta: Uma vez | 1 | 1 vez
