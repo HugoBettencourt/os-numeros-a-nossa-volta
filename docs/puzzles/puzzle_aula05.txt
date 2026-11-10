@@ -1,0 +1,3 @@
+Data: 10/11/2026
+Pergunta: De 100€ aumentei 20% e depois diminui 20%. Quanto é que ficou?
+Resposta: 96 | 96€
