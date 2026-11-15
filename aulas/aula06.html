@@ -1,0 +1,834 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Os números à nossa volta — Aula 06: A vida em números</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --teal-950: #042F2E;
+            --teal-800: #115E59;
+            --teal-700: #0F766E;
+            --teal-600: #0D9488;
+            --teal-500: #14B8A6;
+            --teal-300: #5EEAD4;
+            --teal-200: #99F6E4;
+            --teal-100: #CCFBF1;
+            --teal-50: #F0FDFA;
+            --yellow: #F6D365;
+            --coral: #F7836D;
+            --ink: #102A27
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: var(--teal-800)
+        }
+
+        .reveal,
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal p,
+        .reveal div,
+        .reveal span,
+        .reveal strong {
+            font-family: "Atkinson Hyperlegible", Arial, sans-serif
+        }
+
+        .reveal {
+            font-size: 36px;
+            color: var(--ink)
+        }
+
+        .reveal .slides {
+            text-align: left
+        }
+
+        .reveal .slides section {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            padding: 58px 70px 68px;
+            overflow: hidden;
+            background-color: var(--teal-50);
+            background-image: radial-gradient(circle at 94% 8%, rgba(45, 212, 191, .16) 0 90px, transparent 91px)
+        }
+
+        .reveal .slides section.dark-slide {
+            color: white;
+            background-color: var(--teal-800);
+            background-image: radial-gradient(circle at 92% 10%, rgba(94, 234, 212, .15) 0 125px, transparent 126px), radial-gradient(circle at 5% 95%, rgba(45, 212, 191, .11) 0 160px, transparent 161px)
+        }
+
+        .reveal .slides section.cover {
+            background-color: #134E4A;
+            background-image: radial-gradient(circle at 89% 14%, rgba(94, 234, 212, .16) 0 145px, transparent 146px), radial-gradient(circle at 7% 96%, rgba(45, 212, 191, .13) 0 175px, transparent 176px);
+            color: white
+        }
+
+        .cover .course {
+            display: inline-block;
+            margin-bottom: 40px;
+            padding: 10px 24px;
+            border-radius: 999px;
+            background: var(--teal-500);
+            color: var(--teal-950);
+            font-size: .55em;
+            font-weight: 700
+        }
+
+        .cover h1 {
+            max-width: 800px;
+            color: #fff !important;
+            font-size: 2.25em
+        }
+
+        .cover h1 span {
+            color: #5EEAD4 !important
+        }
+
+        .cover .subtitle {
+            max-width: 760px;
+            margin-top: 26px;
+            color: var(--teal-100);
+            font-size: .84em !important
+        }
+
+        .cover .teacher {
+            position: absolute;
+            left: 70px;
+            bottom: 32px;
+            margin: 0;
+            color: var(--teal-200);
+            font-size: 20px;
+            line-height: 1
+        }
+
+        .reveal .slides section.cover .slide-number {
+            color: var(--teal-200) !important
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3 {
+            margin: 0;
+            color: var(--ink);
+            font-weight: 700;
+            letter-spacing: -.025em;
+            text-transform: none
+        }
+
+        .reveal h1 {
+            font-size: 2.15em;
+            line-height: 1.12
+        }
+
+        .reveal h2 {
+            font-size: 1.55em;
+            line-height: 1.15
+        }
+
+        .reveal h3 {
+            font-size: 1em;
+            line-height: 1.2
+        }
+
+        .reveal p {
+            font-size: .95em;
+            line-height: 1.3
+        }
+
+        .dark-slide h1,
+        .dark-slide h2,
+        .dark-slide h3,
+        .dark-slide p {
+            color: white
+        }
+
+        .reveal .top-label {
+            position: absolute;
+            top: 30px;
+            left: 70px;
+            margin: 0;
+            color: var(--teal-700);
+            font-size: 18px;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: .02em;
+            text-transform: uppercase;
+            z-index: 10
+        }
+
+        .dark-slide .top-label {
+            color: var(--teal-200)
+        }
+
+        .reveal .slides section .slide-number {
+            position: absolute !important;
+            right: 42px !important;
+            bottom: 32px !important;
+            top: auto !important;
+            left: auto !important;
+            width: auto !important;
+            height: auto !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            font-family: "Atkinson Hyperlegible", Arial, sans-serif !important;
+            color: var(--teal-700) !important;
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            line-height: 1 !important;
+            letter-spacing: 0 !important;
+            opacity: 1 !important;
+            writing-mode: horizontal-tb !important;
+            transform: none !important;
+            z-index: 9999 !important;
+            pointer-events: none
+        }
+
+        .reveal .slides section.dark-slide .slide-number {
+            color: var(--teal-200) !important
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 78px;
+            left: 70px;
+            right: 70px;
+            bottom: 68px;
+            box-sizing: border-box;
+            overflow: hidden
+        }
+
+        .teal {
+            color: var(--teal-600)
+        }
+
+        .yellow {
+            color: var(--yellow)
+        }
+
+        .kicker {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: var(--teal-700);
+            font-size: .55em;
+            font-weight: 700;
+            letter-spacing: .05em
+        }
+
+        .objective {
+            margin-top: 26px;
+            padding: 22px 28px;
+            border-radius: 22px;
+            background: var(--teal-700);
+            color: white;
+            font-size: .82em;
+            line-height: 1.3
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-top: 28px
+        }
+
+        .cards.three {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .card {
+            box-sizing: border-box;
+            min-height: 150px;
+            padding: 22px 25px;
+            background: white;
+            border: 3px solid var(--teal-200);
+            border-radius: 22px
+        }
+
+        .card h3 {
+            margin-bottom: 8px
+        }
+
+        .card p {
+            margin: 0;
+            font-size: .78em
+        }
+
+        .card.accent {
+            background: var(--teal-700);
+            border-color: var(--teal-700);
+            color: white
+        }
+
+        .card.accent h3,
+        .card.accent p {
+            color: white
+        }
+
+        .formula {
+            margin: 25px 0 10px;
+            padding: 22px 28px;
+            border-radius: 20px;
+            background: white;
+            border: 3px solid var(--teal-300);
+            font-size: 1.38em;
+            font-weight: 700;
+            letter-spacing: .02em;
+            text-align: center
+        }
+
+        .dark-slide .formula {
+            background: rgba(255, 255, 255, .12);
+            border-color: var(--teal-300);
+            color: white
+        }
+
+        .formula small {
+            display: block;
+            margin-top: 8px;
+            font-size: .48em;
+            font-weight: 400;
+            letter-spacing: 0
+        }
+
+        .steps {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 28px
+        }
+
+        .step {
+            flex: 1;
+            padding: 18px 14px;
+            background: white;
+            border-radius: 18px;
+            border: 3px solid var(--teal-200);
+            font-size: .76em;
+            text-align: center;
+            font-weight: 700
+        }
+
+        .arrow {
+            color: var(--teal-600);
+            font-weight: 700
+        }
+
+        .ladder {
+            display: grid;
+            gap: 12px;
+            margin-top: 24px
+        }
+
+        .rung {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 14px 20px;
+            border-radius: 16px;
+            background: white;
+            border-left: 12px solid var(--teal-500);
+            font-size: .84em
+        }
+
+        .rung strong {
+            min-width: 190px;
+            color: var(--teal-700)
+        }
+
+        .rung:nth-child(2) {
+            border-color: var(--yellow)
+        }
+
+        .rung:nth-child(3) {
+            border-color: var(--coral)
+        }
+
+        .rung:nth-child(4) {
+            border-color: var(--teal-300)
+        }
+
+        .prompt {
+            margin: 25px 0 0;
+            padding: 25px 30px;
+            border-radius: 22px;
+            background: var(--teal-100);
+            font-size: 1.03em;
+            font-weight: 700
+        }
+
+        .dark-slide .prompt {
+            background: rgba(255, 255, 255, .12);
+            color: white
+        }
+
+        .note {
+            margin-top: 18px;
+            font-size: .74em !important
+        }
+
+        .challenge {
+            margin-top: 25px;
+            padding: 24px 30px;
+            border-radius: 22px;
+            background: white;
+            border: 4px solid var(--yellow)
+        }
+
+        .challenge h3 {
+            color: var(--teal-700)
+        }
+
+        .challenge p {
+            margin: 8px 0 0
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 30px
+        }
+
+        .time {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 62px;
+            padding: 12px;
+            background: white;
+            border-radius: 18px;
+            border-top: 9px solid var(--teal-500);
+            color: var(--teal-700);
+            font-size: .66em;
+            font-weight: 700;
+            text-align: center
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 24px
+        }
+
+        .level {
+            box-sizing: border-box;
+            min-height: 300px;
+            padding: 20px;
+            background: white;
+            border: 3px solid var(--teal-200);
+            border-radius: 22px
+        }
+
+        .level.medium {
+            border-color: var(--yellow);
+            background: #FFF7D6
+        }
+
+        .level.hard {
+            border-color: var(--coral);
+            background: #FFF0ED
+        }
+
+        .level h3 {
+            margin-bottom: 18px;
+            color: var(--teal-700)
+        }
+
+        .level p {
+            margin: 12px 0;
+            font-size: .72em;
+            font-weight: 700
+        }
+
+        .dark-slide .card h3,
+        .dark-slide .card p,
+        .dark-slide .card .formula {
+            color: var(--ink)
+        }
+
+        .pdf-export {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 10000;
+            padding: 10px 18px;
+            background: var(--teal-700);
+            border-radius: 999px;
+            color: white !important;
+            font-family: "Atkinson Hyperlegible", Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none
+        }
+
+        html.reveal-print .reveal .slides .pdf-page>section {
+            width: 1024px !important;
+            height: 768px !important;
+            min-height: 768px !important;
+            padding: 58px 70px 68px !important;
+            overflow: hidden !important
+        }
+
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important
+            }
+
+            .fragment,
+            .fragment.visible,
+            .slide-number {
+                opacity: 1 !important;
+                visibility: visible !important
+            }
+
+            .pdf-export {
+                display: none !important
+            }
+        }
+
+        .stats-quiz {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 14px;
+            margin-top: 18px;
+            height: 390px
+        }
+
+        .stat-box {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 16px 22px;
+            background: #fff;
+            border: 3px solid var(--teal-200);
+            border-radius: 22px;
+            min-height: 0
+        }
+
+        .stat-box p {
+            margin: 0;
+            font-size: .7em;
+            line-height: 1.2;
+            font-weight: 700
+        }
+
+        .stat-answer {
+            display: block;
+            margin-top: 8px;
+            color: var(--teal-700);
+            font-size: 1.05em;
+            line-height: 1.05;
+            font-weight: 700
+        }
+
+        .stats-quiz .fragment:not(.visible) {
+            visibility: hidden;
+            opacity: 0
+        }
+
+        .stats-quiz .fragment.visible {
+            visibility: visible;
+            opacity: 1
+        }
+
+        .kk-wordmark {
+            margin: 20px auto 0;
+            text-align: center;
+            color: #102A27;
+            font-family: Arial, sans-serif;
+            font-size: 1.25em;
+            font-weight: 700;
+            letter-spacing: -.06em
+        }
+
+        .kk-wordmark span {
+            padding: 0 4px;
+            color: #F7831B;
+            font-size: 1.25em
+        }
+
+        .kk-link {
+            text-align: center;
+            margin: 8px 0 0 !important;
+            font-size: .82em !important;
+            font-weight: 700
+        }
+
+        .kk-prompt {
+            margin-top: 18px !important;
+            padding: 16px 24px !important;
+            font-size: .82em !important;
+            line-height: 1.2 !important
+        }
+
+        .pq-logo-window {
+            width: 250px;
+            height: 98px;
+            margin: 12px auto 0;
+            overflow: hidden
+        }
+
+        .pq-logo-window img {
+            display: block;
+            width: 250px;
+            height: 250px;
+            max-width: none;
+            transform: translateY(-65px)
+        }
+
+        .pq-link {
+            text-align: center;
+            margin: 6px 0 18px !important;
+            font-size: .82em !important;
+            font-weight: 700
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section class="cover">
+                <div class="course">OS NÚMEROS À NOSSA VOLTA</div>
+                <h1>A vida<br><span>em números</span></h1>
+                <p class="subtitle">Estatística para fazer perguntas, ler respostas e perceber o que os dados contam.
+                </p>
+                <p class="teacher">Professor Hugo Bettencourt</p>
+                <div class="slide-number">01</div>
+            </section>
+            <section>
+                <p class="top-label">A NOSSA AULA</p>
+                <div class="slide-content">
+                    <div class="kicker">OBJETIVO DE HOJE</div>
+                    <h1>Olhar para os dados<br><span class="teal">com atenção.</span></h1>
+                    <div class="objective">Distinguir população e amostra, reconhecer tipos de variáveis, explorar
+                        medidas estatísticas e avaliar as conclusões de um estudo.</div>
+                    <div class="timeline">
+                        <div class="time">Conversa inicial</div>
+                        <div class="time">População e amostra</div>
+                        <div class="time">Tipos de variáveis</div>
+                        <div class="time">Medidas estatísticas</div>
+                        <div class="time">Ler estudos e recolher dados</div>
+                    </div>
+                </div>
+                <div class="slide-number">02</div>
+            </section>
+            <section>
+                <p class="top-label">PARA COMEÇAR</p>
+                <div class="slide-content">
+                    <h2>Quando alguém diz «um estudo mostra…», o que gostavam de saber primeiro?</h2>
+                    <div class="cards three">
+                        <div class="card">
+                            <h3>QUEM?</h3>
+                            <p>Quem é que foi o foco do estudo?</p>
+                        </div>
+                        <div class="card">
+                            <h3>COMO?</h3>
+                            <p>Como é que os resultados foram recolhidos?</p>
+                        </div>
+                        <div class="card">
+                            <h3>O QUÊ?</h3>
+                            <p>Que tema ou pergunta o estudo procura responder?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-number">03</div>
+            </section>
+            <section class="dark-slide">
+                <p class="top-label">UM EXEMPLO FICTÍCIO</p>
+                <div class="slide-content">
+                    <h2>Quem queremos conhecer?</h2>
+                    <div class="cards">
+                        <div class="card">
+                            <h3>População</h3>
+                            <p>Todas as pessoas sobre quem queremos saber algo.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Amostra</h3>
+                            <p>O grupo escolhido para representar o todo.</p>
+                        </div>
+                    </div>
+                    <div class="objective">A amostra ajuda-nos a estudar a população. Para representar bem o conjunto, a
+                        escolha do número de pessoas e quem elas são importa.</div>
+                </div>
+                <div class="slide-number">04</div>
+            </section>
+            <section>
+                <p class="top-label">O QUE REGISTAMOS?</p>
+                <div class="slide-content">
+                    <h2>Cada resposta é uma variável</h2>
+                    <div class="cards">
+                        <div class="card">
+                            <h3>Qualitativa</h3>
+                            <p>Descreve uma categoria, não uma quantidade.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Quantitativa</h3>
+                            <p>É expressa por um número que conta ou mede.</p>
+                        </div>
+                    </div>
+                    <div class="prompt">Uma escala de «1 a 5» usa números, mas representa uma opinião e não uma medida
+                        física.</div>
+                </div>
+                <div class="slide-number">05</div>
+            </section>
+            <section>
+                <p class="top-label">CONTAR E MEDIR</p>
+                <div class="slide-content">
+                    <h2>Dois tipos de resposta numérica</h2>
+                    <div class="cards">
+                        <div class="card">
+                            <h3>Discreta · conta</h3>
+                            <p>Número de pessoas em casa: 1, 2, 3…</p>
+                        </div>
+                        <div class="card">
+                            <h3>Contínua · mede</h3>
+                            <p>Quantidade de água num copo: 200ml, 201ml, 202ml...</p>
+                        </div>
+                    </div>
+                    <div class="objective">«A idade em anos completos é uma contagem ou uma medição?»</div>
+                </div>
+                <div class="slide-number">06</div>
+            </section>
+            <section class="dark-slide">
+                <p class="top-label">RESUMIR UM CONJUNTO</p>
+                <div class="slide-content">
+                    <h2>Quatro medidas muito conhecidas</h2>
+                    <div class="cards">
+                        <div class="card">
+                            <h3>Média</h3>
+                            <p>Somamos os valores e dividimos pela quantidade.<br>É sensível a valores muito altos ou
+                                baixos.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Mediana</h3>
+                            <p>O valor do meio depois de ordenar os dados.<br>Metade fica abaixo e metade acima.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Moda</h3>
+                            <p>O valor ou categoria que aparece mais vezes.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Amplitude</h3>
+                            <p>Maior valor menos menor valor. Mostra a distância entre extremos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-number">07</div>
+            </section>
+            <section>
+                <p class="top-label">LER UM ESTUDO</p>
+                <div class="slide-content">
+                    <h2>Antes de aceitar uma conclusão, pergunte</h2>
+                    <div class="ladder">
+                        <div class="rung"><strong>Quem?</strong><span>Qual é a população e quem respondeu?</span></div>
+                        <div class="rung"><strong>Quantos?</strong><span>Qual é o tamanho da amostra?</span></div>
+                        <div class="rung"><strong>Como?</strong><span>Como foram escolhidas as pessoas e feita a
+                                pergunta?</span></div>
+                        <div class="rung"><strong>Quando?</strong><span>Em que data e contexto foram recolhidos os
+                                dados?</span></div>
+                        <div class="rung"><strong>O que falta?</strong><span>Há comparação, margem de erro ou outras
+                                explicações?</span></div>
+                    </div>
+                </div>
+                <div class="slide-number">08</div>
+            </section>
+            <section class="dark-slide">
+                <p class="top-label">EXEMPLO FICTÍCIO · UM TÍTULO, VÁRIAS PERGUNTAS</p>
+                <div class="slide-content">
+                    <h2>Oito em cada dez preferem caminhar?</h2>
+                    <div class="objective">10 pessoas responderam à saída de um parque, numa manhã de sol.</div>
+                    <div class="cards">
+                        <div class="card">
+                            <h3>O que podemos dizer?</h3>
+                            <p>Na amostra, 8 em 10 (80%) disseram preferir caminhar.</p>
+                        </div>
+                        <div class="card">
+                            <h3>O que não podemos concluir?</h3>
+                            <p>Que 80% da população prefere caminhar. As 10 pessoas foram ouvidas num único parque e
+                                horário.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-number">09</div>
+            </section>
+            <section>
+                <p class="top-label">VAMOS RECOLHER DADOS</p>
+                <div class="slide-content">
+                    <h2>Um questionário para as próximas aulas</h2>
+                    <div class="cards">
+                        <div class="card">
+                            <h3>Sete perguntas</h3>
+                            <p>Há respostas numéricas e respostas por categorias.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Sem nomes</h3>
+                            <p>As respostas serão analisadas em conjunto, não para avaliar ninguém.</p>
+                        </div>
+                    </div>
+                    <div class="objective">Preencha apenas o que quiser. Pode deixar qualquer pergunta em branco. Não
+                        escreva o seu nome.</div>
+                </div>
+                <div class="slide-number">10</div>
+            </section>
+        <section class="dark-slide">
+            <p class="top-label">PARA LEVAR CONSIGO</p>
+            <div class="slide-content">
+                <h1>Pergunte antes<br><span class="yellow">de concluir.</span></h1>
+                <div class="prompt">Antes de confiar num resultado, veja quem respondeu, como foi escolhida a amostra e
+                    que limites têm os dados.</div>
+                <p class="subtitle">Que pergunta vai fazer da próxima vez que ouvir «um estudo mostra…»?</p>
+                <p class="note">Na próxima aula, vamos organizar os dados do questionário e aprender a calcular as
+                    medidas.</p>
+            </div>
+            <div class="slide-number">11</div>
+        </section>
+    </div>
+    </div>
+    <a class="pdf-export" href="?view=print" title="Abrir o modo de impressão para PDF">Imprimir / PDF</a>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+    <script>
+        const slides = Array.from(document.querySelectorAll('.reveal .slides > section'));
+        slides.forEach((slide, index) => {
+            const number = slide.querySelector('.slide-number');
+            if (number) number.textContent = String(index + 1).padStart(2, '0');
+            if (index === 0 || index === slides.length - 1) return;
+            let fragmentIndex = 0;
+            slide.querySelectorAll('.slide-content > .objective, .slide-content > .formula, .slide-content > .cards > .card, .slide-content > .steps, .slide-content > .ladder > .rung, .slide-content > .prompt, .slide-content > .note, .slide-content > .timeline, .slide-content > .challenge').forEach((item) => {
+                item.classList.add('fragment', 'fade-up');
+                item.dataset.fragmentIndex = fragmentIndex++;
+            });
+        });
+        Reveal.initialize({ width: 1024, height: 768, margin: 0, minScale: .1, maxScale: 4, controls: true, progress: true, center: false, hash: true, keyboard: true, touch: true, transition: "slide", transitionSpeed: "default", backgroundTransition: "fade", pdfSeparateFragments: false, pdfMaxPagesPerSlide: 1, slideNumber: false });
+    </script>
+</body>
+
+</html>
