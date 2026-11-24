@@ -1,0 +1,3 @@
+Data: 24/11/2026
+Pergunta: Que medida estatística é facilmente influenciada por extremos?
+Resposta: Média | média | media | Media
